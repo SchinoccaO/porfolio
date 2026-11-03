@@ -1,0 +1,18 @@
+---
+import { site } from '../../content/site';
+const a = site.about;
+const sk = a.skills;
+const skills = `${sk.slice(0, -1).join(', ')} y ${sk[sk.length - 1]}`;
+---
+<section class="c-slide c-about c-cream" id="sobre-mi">
+  <div class="c-about__photo c-reveal">
+    <div class="c-about__disc" aria-hidden="true"></div>
+    <img data-parallax="-0.04" src="/c/oriana.webp" width="1100" height="1449" alt="" loading="lazy" />
+  </div>
+  <h2 class="c-title c-about__title c-reveal">{a.title}</h2>
+  <div class="c-about__text c-reveal">
+    {a.paragraphs.map((p, i) => <p class={i === 0 ? 'c-lead' : ''}>{p}</p>)}
+    <p class="c-about__skills"><span class="c-script">{a.skillsTitle}</span> {skills}.</p>
+    <p class="c-about__small">{a.smallLine}</p>
+  </div>
+</section>

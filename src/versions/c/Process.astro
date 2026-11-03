@@ -1,0 +1,16 @@
+---
+import { site } from '../../content/site';
+const [w1, ...w2] = site.process.title.split(' ');
+---
+<section class="c-slide c-process c-cream" id="como-trabajo">
+  <h2 class="c-title c-reveal"><span class="c-script">{w1}</span> {w2.join(' ')}</h2>
+  <ol class="c-timeline">
+    {site.process.steps.map((s, i) => (
+      <li class="c-step c-reveal" style={`--n:${i}`}>
+        <span class="c-step__num" aria-hidden="true">{i + 1}</span>
+        <h3>{s.title}</h3>
+        <p>{s.text}</p>
+      </li>
+    ))}
+  </ol>
+</section>

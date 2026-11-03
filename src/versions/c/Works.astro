@@ -1,0 +1,21 @@
+---
+import { site } from '../../content/site';
+const [main, ...soon] = site.works.items;
+---
+<section class="c-slide c-works" id="trabajos">
+  <h2 class="c-title c-reveal">{site.works.title}</h2>
+  <a class="c-work c-reveal" href={main.href} rel="noopener">
+    <span class="c-work__kind">{main.kind}</span>
+    <span class="c-work__name">{main.name}</span>
+    <span class="c-work__desc">{main.desc}</span>
+    <span class="c-work__go" aria-hidden="true">↗</span>
+  </a>
+  <div class="c-empties">
+    {soon.map((s, i) => (
+      <div class={`c-empty c-empty--${i + 1} c-reveal`}>
+        <span class="c-empty__name">{s.name}</span>
+        <span>{s.desc}</span>
+      </div>
+    ))}
+  </div>
+</section>

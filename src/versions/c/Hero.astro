@@ -1,0 +1,26 @@
+---
+import { site } from '../../content/site';
+const letters = site.hero.giantWord.toUpperCase().split('');
+const parts = site.hero.title.split(site.hero.scribbleWord);
+const [, ...rest] = site.name.split(' ');
+const last = rest.join(' ');
+---
+<section class="c-slide c-hero" id="inicio">
+  <nav class="c-nav" aria-label="Secciones">
+    {site.nav.map((n) => <a href={`#${n.id}`}>{n.label}</a>)}
+  </nav>
+  <div class="c-stage">
+    <div class="c-circle" aria-hidden="true"></div>
+    <div class="c-word" aria-hidden="true">
+      {letters.map((l, i) => <span style={`--i:${i}`}>{l}</span>)}
+    </div>
+    <img class="c-hero__photo" data-parallax="-0.07" src="/c/oriana.webp" width="1100" height="1449" alt={site.hero.photoAlt} fetchpriority="high" />
+    <p class="c-script c-hero__script" aria-hidden="true">{last}</p>
+    <p class="c-hero__tag">{site.handle}<br />{site.about.place}</p>
+  </div>
+  <div class="c-hero__copy">
+    <h1>{parts[0]}<span class="c-mark">{site.hero.scribbleWord}</span>{parts[1]}</h1>
+    <p class="c-hero__sub">{site.hero.sub}</p>
+    <a class="c-cta" href={site.hero.cta.href}>{site.hero.cta.label}<span aria-hidden="true"> →</span></a>
+  </div>
+</section>

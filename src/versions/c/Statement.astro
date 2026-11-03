@@ -1,0 +1,10 @@
+---
+import { site } from '../../content/site';
+const [a, b] = site.statement;
+const bParts = b.split(site.statementScribble);
+---
+<section class="c-slide c-statement c-reveal" aria-label="Declaración">
+  <p class="c-statement__a">{a}</p>
+  <p class="c-statement__b">{bParts[0]}<span class="c-script c-statement__venden">{site.statementScribble}</span></p>
+  <p class="c-statement__sub">{site.sub}</p>
+</section>
