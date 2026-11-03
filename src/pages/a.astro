@@ -1,0 +1,26 @@
+---
+import '../versions/a/a.css';
+import { site } from '../content/site';
+import AApp from '../versions/a/AApp';
+---
+<!doctype html>
+<html lang={site.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{site.title}</title>
+    <meta name="description" content={site.description} />
+    <meta name="theme-color" content="#2748D8" />
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;700&family=Yellowtail&display=swap"
+    />
+    <script is:inline>document.documentElement.classList.add('a-js');</script>
+  </head>
+  <body class="a-body">
+    <AApp client:load />
+  </body>
+</html>
