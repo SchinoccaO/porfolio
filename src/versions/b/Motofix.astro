@@ -1,0 +1,27 @@
+---
+import { site } from '../../content/site';
+import Doodle from './Doodle.astro';
+const m = site.motofix;
+---
+<section class="b-moto" id="motofix">
+  <div class="b-moto__head b-reveal">
+    <span class="b-script b-moto__kicker">{m.kicker}</span>
+    <h2 class="b-moto__title">{m.title}</h2>
+  </div>
+  <div class="b-moto__grid">
+    <div class="b-moto__text b-reveal">
+      <p class="b-moto__lead">{m.lead}</p>
+      <p>{m.why}</p>
+      <p class="b-moto__status">{m.status}</p>
+      <a class="b-btn b-btn--ink" href={m.cta.href} target="_blank" rel="noopener">{m.cta.label}<span class="b-btn__arrow" aria-hidden="true">↗</span></a>
+    </div>
+    <div class="b-moto__built b-reveal">
+      <svg class="b-moto__blob" viewBox="0 0 400 460" preserveAspectRatio="none" aria-hidden="true"><path d="M70 30C150 -10 300 0 360 60C420 130 380 230 390 310C400 400 300 460 200 450C100 440 20 400 10 310C0 220 40 180 20 110C10 70 40 45 70 30Z" /></svg>
+      <h3 class="b-moto__built-title">{m.builtTitle}</h3>
+      <ul class="b-moto__list">
+        {m.built.map((b, i) => <li class={`b-moto__li b-moto__li--${i % 3}`}>{b}</li>)}
+      </ul>
+      <Doodle kind="sun" class="b-moto__sun" />
+    </div>
+  </div>
+</section>

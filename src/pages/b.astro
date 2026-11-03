@@ -1,0 +1,46 @@
+---
+import '../versions/b/b.css';
+import { site } from '../content/site';
+import Hero from '../versions/b/Hero.astro';
+import About from '../versions/b/About.astro';
+import Services from '../versions/b/Services.astro';
+import Works from '../versions/b/Works.astro';
+import Motofix from '../versions/b/Motofix.astro';
+import Process from '../versions/b/Process.astro';
+import Statement from '../versions/b/Statement.astro';
+import Contact from '../versions/b/Contact.astro';
+---
+<!doctype html>
+<html lang={site.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{site.title}</title>
+    <meta name="description" content={site.description} />
+    <meta name="theme-color" content="#FBF0E2" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Kaushan+Script&family=Caveat:wght@500;700&display=swap"
+    />
+    <script is:inline>document.documentElement.classList.add('b-js');</script>
+  </head>
+  <body class="b-root">
+    <div class="b-page">
+    <Hero />
+    <main>
+      <About />
+      <Services />
+      <Works />
+      <Motofix />
+      <Process />
+      <Statement />
+      <Contact />
+    </main>
+    </div>
+    <script>
+      import '../versions/b/reveal';
+    </script>
+  </body>
+</html>

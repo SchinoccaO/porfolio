@@ -1,0 +1,32 @@
+---
+import { site } from '../../content/site';
+import Doodle from './Doodle.astro';
+const c = site.contact;
+const f = c.fields;
+---
+<section class="b-contact" id="contacto">
+  <div class="b-contact__blob" aria-hidden="true"></div>
+  <h2 class="b-h2 b-reveal">{c.title}</h2>
+  <p class="b-contact__intro b-reveal">{c.intro}</p>
+  <form class="b-form b-reveal" data-b-form>
+    <label class="b-field"><span>{f.type}</span>
+      <select name="type">{f.typeOptions.map((o) => <option>{o}</option>)}</select>
+    </label>
+    <label class="b-field"><span>{f.deadline}</span>
+      <input name="deadline" type="text" placeholder={f.deadlinePlaceholder} />
+    </label>
+    <label class="b-field"><span>{f.problem}</span>
+      <textarea name="problem" rows="4" placeholder={f.problemPlaceholder}></textarea>
+    </label>
+    <button class="b-btn" type="submit">{f.submit}<span class="b-btn__arrow" aria-hidden="true">→</span></button>
+    {/* TODO: no backend yet (see site.contact.todoNote). Submit is a no-op in this prototype. */}
+  </form>
+  <ul class="b-channels b-reveal">
+    {c.channels.map((ch) => <li><span class="b-script">{ch.label}</span> {ch.value}</li>)}
+  </ul>
+  <Doodle kind="sun" class="b-contact__sun" />
+  <footer class="b-footer">
+    <p>{site.footer}</p>
+    <nav aria-label="Pie">{site.nav.map((n) => <a href={`#${n.id}`}>{n.label}</a>)}</nav>
+  </footer>
+</section>

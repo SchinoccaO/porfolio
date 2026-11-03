@@ -1,0 +1,41 @@
+---
+import { site } from '../../content/site';
+import Doodle from './Doodle.astro';
+const s = site.services;
+const [plan, custom] = s.plans;
+---
+<section class="b-services" id="servicios">
+  <h2 class="b-h2 b-reveal">{s.title}</h2>
+  <p class="b-services__intro b-reveal">{s.intro}</p>
+
+  <div class="b-plans">
+    <article class="b-plan b-plan--tpl b-reveal">
+      <h3 class="b-plan__name">{plan.name}</h3>
+      <p class="b-plan__pitch">{plan.pitch}</p>
+      <p>{plan.desc}</p>
+      <ul class="b-plan__list">{plan.items.map((i) => <li>{i}</li>)}</ul>
+    </article>
+    <article class="b-plan b-plan--custom b-reveal">
+      <svg class="b-plan__bg" viewBox="0 0 400 420" preserveAspectRatio="none" aria-hidden="true"><path d="M60 40C120 -10 260 10 330 50C400 90 400 200 370 270C340 350 250 430 160 400C70 380 10 330 10 240C10 160 10 90 60 40Z" /></svg>
+      <div class="b-plan__inner">
+        <h3 class="b-plan__name">{custom.name}</h3>
+        <p class="b-plan__pitch">{custom.pitch}</p>
+        <p>{custom.desc}</p>
+        <ul class="b-plan__list b-plan__list--wavy">{custom.items.map((i) => <li>{i}</li>)}</ul>
+      </div>
+      <Doodle kind="asterisk" class="b-plan__ast" />
+    </article>
+    <div class="b-stamp b-reveal" role="note"><span>{s.price}</span></div>
+  </div>
+
+  <div class="b-extras b-reveal">
+    <h3 class="b-script b-extras__title">{s.extrasTitle}</h3>
+    <ul class="b-cloud">
+      {s.extras.map((e, i) => <li class={`b-cloud__item b-cloud__item--${i}`}>{e}</li>)}
+    </ul>
+  </div>
+
+  <div class="b-notes">
+    {s.notes.map((n, i) => <p class={`b-note b-note--${i} b-reveal`}>{n}</p>)}
+  </div>
+</section>
