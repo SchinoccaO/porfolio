@@ -10,6 +10,11 @@ Mobile-first personal portfolio for Oriana Schinocca: attract freelance clients,
 - Owner manages domain, servers, front deploy. Hosting: free (Vercel/Render, account set up by owner, has cold-start delay) or premium (adds to price).
 - Third-party costs (designer, photographer, paid DBs/servers, external services) are paid by the client.
 - Extra service: INPI trademark registration management.
+- Site purpose (owner, final): (1) who she is = personal brand, identity "Deja de consumir, empeza a crear", Motofix as proof; (2) sell freelance services. Do NOT put "slow-cooked / fuego lento" or the AI-time tension in site copy (only usable later as a sales argument for custom designs).
+- Template types offered: landing/presentation, bookings/appointments, portfolio, CRM, simple e-commerce (Mercado Pago). Extras: SEO, domain, trademark registration, etc. First real projects will all be custom (templates don't exist yet).
+- Confirmed personal facts (OK to publish): based in Cordoba; motera (rider); full stack dev (React, Node, Express, Python, SQL); student at UTN FRC (Ingenieria en Sistemas) and UTN San Francisco (Tecnicatura en Programacion), so she has theoretical foundations; founder of MotoFIX; very perseverant, "jumps into the void and does". Differentiator: understands the problem before writing code (functional analyst).
+- Do NOT publish: pet (Lilith), utn-mcp contributions, work/family details, prices, testimonials, invented metrics.
+- Visual identity (owner refs): scrapbook/collage (cream, burgundy, baby blue, torn paper, stamps, key tags, pins), distorted/wavy typography, Sippa-style warm gradients + text on curved paths + pill stickers + wavy dividers. Must have MOVEMENT (owner named Animate.css; reference site patagoniainquieta.com uses Animate.css keyframes + custom hero animations + IntersectionObserver reveals). Owner rejected prototypes v1-v3 (technical/editorial/playful).
 - Ideal client: knows what they want. Fast, low-cost solutions; money goes to Motofix.
 
 ## Motofix (content source)
@@ -25,8 +30,8 @@ Argentine platform for moto workshops, mechanics, tire shops, parts stores and t
 - Delivery strategy: ask-on-risk.
 
 ## Tasks
-- [ ] T1 Scaffold Astro (mobile first) + git init + 3 radically different prototype variants (`?v=1|2|3`) with real content. Route: delegated (writer, 2+ files).
-- [ ] T2 Owner picks a direction; delete the others; build final sections.
+- [x] T1 Scaffold Astro (mobile first) + git init + 3 radically different prototype variants (`?v=1|2|3`) with real content. Route: delegated (writer, 2+ files; trigger: writer rule). Evidence: commit c065844; `npm run build` OK (re-run by parent: 1 page built). NOT checked: visual/mobile layout in a browser. Review tier: not assessed (prototype, throwaway).
+- [x] T2 Identity-led redesign: replace prototypes v1-v3 with 2 variants of ONE identity (scrapbook collage vs warm-gradient fluid), with motion (animate.css + custom keyframes + IntersectionObserver, prefers-reduced-motion respected), real copy from this doc. Owner picks one, then finalize. Route: delegated (writer). Evidence: branch feat/identity-redesign; `npm run build` OK; Playwright 360px screenshots + no horizontal overflow checked for both variants (normal and reduced motion). Awaiting owner pick.
 - [ ] T3 SEO: meta, Open Graph, JSON-LD (Person, ProfessionalService), sitemap, robots, performance pass.
 - [ ] T4 Deploy to Vercel + domain.
 - [ ] T5 Real works/case studies + template showcase.

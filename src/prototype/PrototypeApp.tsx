@@ -1,18 +1,18 @@
-// PROTOTYPE (throwaway): picks a design variant from ?v=1|2|3.
+// PROTOTYPE (throwaway): picks a design variant from ?v=1|2.
 import { useEffect, useState } from 'react';
-import VariantTechnical from './VariantTechnical';
-import VariantEditorial from './VariantEditorial';
-import VariantPlayful from './VariantPlayful';
+import 'animate.css/animate.min.css';
+import './shared.css';
+import VariantScrapbook from './VariantScrapbook';
+import VariantFluid from './VariantFluid';
 
 const variants = [
-  { id: 1, label: 'Técnico', Component: VariantTechnical },
-  { id: 2, label: 'Editorial', Component: VariantEditorial },
-  { id: 3, label: 'Juguetón', Component: VariantPlayful },
+  { id: 1, label: 'Scrapbook', Component: VariantScrapbook },
+  { id: 2, label: 'Fluid', Component: VariantFluid },
 ];
 
 function readVariant(): number {
   const v = Number(new URLSearchParams(window.location.search).get('v'));
-  return v >= 1 && v <= 3 ? v : 1;
+  return variants.some((x) => x.id === v) ? v : 1;
 }
 
 export default function PrototypeApp() {
@@ -32,7 +32,7 @@ export default function PrototypeApp() {
 
   return (
     <>
-      <Current />
+      <Current key={active} />
       <nav
         aria-label="Prototype switcher"
         style={{
