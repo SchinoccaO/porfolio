@@ -1,24 +1,26 @@
 ---
-// Prototype switcher route: ?v=1|2. Variants are React components; the
-// active one is chosen client-side so one static page serves both.
+import 'animate.css/animate.min.css';
+import '../styles/global.css';
 import { site } from '../content/site';
-import PrototypeApp from '../prototype/PrototypeApp';
+import SiteApp from '../components/SiteApp';
 ---
 <!doctype html>
-<html lang="es">
+<html lang={site.lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{site.title}</title>
     <meta name="description" content={site.description} />
+    <meta name="theme-color" content="#FF4D1F" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:wght@400;500;700&family=Caveat:wght@600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;700&display=swap"
     />
+    <script is:inline>document.documentElement.classList.add('js');</script>
   </head>
   <body>
-    <PrototypeApp client:load />
+    <SiteApp client:load />
   </body>
 </html>

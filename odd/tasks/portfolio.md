@@ -10,7 +10,9 @@ Mobile-first personal portfolio for Oriana Schinocca: attract freelance clients,
 - Owner manages domain, servers, front deploy. Hosting: free (Vercel/Render, account set up by owner, has cold-start delay) or premium (adds to price).
 - Third-party costs (designer, photographer, paid DBs/servers, external services) are paid by the client.
 - Extra service: INPI trademark registration management.
-- Site purpose (owner, final): (1) who she is = personal brand, identity "Deja de consumir, empeza a crear", Motofix as proof; (2) sell freelance services. Do NOT put "slow-cooked / fuego lento" or the AI-time tension in site copy (only usable later as a sales argument for custom designs).
+- REVISED central idea (owner, latest): drive visitors to ACT and get their website. Hero: "Instagram no es una web. Y tus clientes lo saben." Sub: "El mejor momento para estar online fue ayer. El segundo es hoy." Statement: "No hago webs lindas. Hago webs que venden." "Deja de consumir, empeza a crear" is NOT central anymore (at most a small line in About). Handle: @_orischinocca. Section ORDER of v2 is approved ("el orden es perfecto"); mobile looked bad -> redo aesthetic. She liked ref image 2 (gropcore: graffiti marker + cutout photo + HUD character-sheet) and the scrapbook idea; also wants Bold Serif / Contraste style: duotone photo on flat color, giant condensed type overlapping the photo, small editorial details (date, plate number, @handle). Photo: C:\Users\orian\motofix\client\public\oriana.jpg (black background).
+- Motofix frontend VERIFIED from repo (client/package.json): React 18 + Vite (+ TypeScript, Tailwind, framer-motion, Big Shoulders Display). Repo README is outdated/planned: do not state DB or hosting from it.
+- Older purpose line: (1) who she is = personal brand, Motofix as proof; (2) sell freelance services. Do NOT put "slow-cooked / fuego lento" or the AI-time tension in site copy (only usable later as a sales argument for custom designs).
 - Template types offered: landing/presentation, bookings/appointments, portfolio, CRM, simple e-commerce (Mercado Pago). Extras: SEO, domain, trademark registration, etc. First real projects will all be custom (templates don't exist yet).
 - Confirmed personal facts (OK to publish): based in Cordoba; motera (rider); full stack dev (React, Node, Express, Python, SQL); student at UTN FRC (Ingenieria en Sistemas) and UTN San Francisco (Tecnicatura en Programacion), so she has theoretical foundations; founder of MotoFIX; very perseverant, "jumps into the void and does". Differentiator: understands the problem before writing code (functional analyst).
 - Do NOT publish: pet (Lilith), utn-mcp contributions, work/family details, prices, testimonials, invented metrics.
@@ -32,6 +34,7 @@ Argentine platform for moto workshops, mechanics, tire shops, parts stores and t
 ## Tasks
 - [x] T1 Scaffold Astro (mobile first) + git init + 3 radically different prototype variants (`?v=1|2|3`) with real content. Route: delegated (writer, 2+ files; trigger: writer rule). Evidence: commit c065844; `npm run build` OK (re-run by parent: 1 page built). NOT checked: visual/mobile layout in a browser. Review tier: not assessed (prototype, throwaway).
 - [x] T2 Identity-led redesign: replace prototypes v1-v3 with 2 variants of ONE identity (scrapbook collage vs warm-gradient fluid), with motion (animate.css + custom keyframes + IntersectionObserver, prefers-reduced-motion respected), real copy from this doc. Owner picks one, then finalize. Route: delegated (writer). Evidence: branch feat/identity-redesign; `npm run build` OK; Playwright 360px screenshots + no horizontal overflow checked for both variants (normal and reduced motion). Awaiting owner pick.
+- [x] T2b Re-aesthetic + conversion copy: single direction (no variants), real components, mobile verified with screenshots at 390px and desktop, duotone photo + giant condensed type + graffiti/HUD/sticker details, keep animate.css motion. Route: inline single writer (owner-directed, no delegation). Evidence: `npm run build` OK; Playwright/Chromium at 390x844, 360x800, 1280x800: scrollWidth == innerWidth, 1 h1, 0 console errors; reduced motion: 0 hidden reveals; screenshots inspected and 3 fix iterations applied. NOT checked: real devices/Safari/Firefox, Lighthouse, contrast tool run (ratios computed by hand).
 - [ ] T3 SEO: meta, Open Graph, JSON-LD (Person, ProfessionalService), sitemap, robots, performance pass.
 - [ ] T4 Deploy to Vercel + domain.
 - [ ] T5 Real works/case studies + template showcase.
@@ -42,4 +45,4 @@ Argentine platform for moto workshops, mechanics, tire shops, parts stores and t
 - Pricing visible on site or "ask for quote"?
 
 ## Progress
-Created. Nothing implemented yet.
+T1, T2, T2b done on branch feat/identity-redesign. Next: T3 SEO.

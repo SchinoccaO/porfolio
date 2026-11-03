@@ -1,4 +1,4 @@
-// Single source of copy (Spanish es-AR). Both prototype variants render this.
+// Single source of copy (Spanish es-AR). Every component reads from here.
 // Rules: no prices, no testimonials, no invented metrics.
 
 export const site = {
@@ -7,15 +7,23 @@ export const site = {
   description:
     'Oriana Schinocca: desarrolladora full stack y analista funcional de Córdoba. Fundadora de Motofix. Sitios web hechos a tu medida.',
   name: 'Oriana Schinocca',
-  tagline: ['Dejá de consumir.', 'Empezá a crear.'],
-  role: 'Desarrolladora full stack y analista funcional.',
-  sub: 'Entiendo el problema antes de escribir código.',
-  heroCtas: {
-    services: { label: 'Ver servicios', href: '#servicios' },
-    contact: { label: 'Escribime', href: '#contacto' },
+  handle: '@_orischinocca',
+  hero: {
+    title: 'Instagram no es una web. Y tus clientes lo saben.',
+    // Word wrapped by the hand-drawn scribble in the title.
+    scribbleWord: 'web.',
+    sub: 'El mejor momento para estar online fue ayer. El segundo es hoy.',
+    cta: { label: 'Quiero mi web', href: '#contacto' },
+    identity: 'Oriana Schinocca · Desarrolladora full stack y analista funcional · @_orischinocca',
+    giantWord: 'Oriana',
+    edition: 'EDICIÓN 2026',
+    plate: 'LÁMINA 01/07',
+    photoAlt: 'Retrato de Oriana Schinocca, desarrolladora full stack, de tres cuartos y mirando a cámara.',
+    stickers: ['Córdoba', 'motera'],
   },
-  heroStickers: ['full stack', 'analista funcional', 'Córdoba', 'motera'],
-  marquee: ['Dejá de consumir', 'Empezá a crear', 'Hacé', 'Animate', 'Construí'],
+  statement: ['No hago webs lindas.', 'Hago webs que venden.'],
+  statementScribble: 'venden.',
+  sub: 'Entiendo el problema antes de escribir código.',
   nav: [
     { id: 'sobre-mi', label: 'Sobre mí' },
     { id: 'motofix', label: 'Motofix' },
@@ -33,8 +41,16 @@ export const site = {
     skillsTitle: 'Con qué trabajo',
     skills: ['React', 'Node', 'Express', 'Python', 'SQL'],
     place: 'Córdoba, Argentina',
-    photoLabel: 'foto',
-    photoNote: 'Falta la foto de Oriana',
+    sheetTitle: 'Ficha de personaje',
+    inventoryTitle: 'Inventario',
+    sheet: [
+      { k: 'Clase', v: 'Full stack + analista funcional' },
+      { k: 'Base', v: 'Córdoba, Argentina' },
+      { k: 'Vehículo', v: 'Moto (motera)' },
+      { k: 'Estudios', v: 'UTN FRC · UTN San Francisco' },
+      { k: 'Atributo', v: 'Perseverante' },
+    ],
+    smallLine: 'Dejá de consumir. Empezá a crear.',
   },
   motofix: {
     title: 'Motofix',
@@ -44,6 +60,7 @@ export const site = {
     status: 'En etapa previa al lanzamiento. Todavía no hay métricas.',
     builtTitle: 'Lo que construí',
     built: [
+      'Frontend en React',
       'Búsqueda de negocios',
       'Perfiles y paneles para cada negocio',
       'Alta con validación de documentación según el rubro',
