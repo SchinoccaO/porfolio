@@ -1,0 +1,25 @@
+---
+import { site } from '../content/site';
+import DApp from '../versions/d/DApp';
+import '../versions/d/d.css';
+---
+<!doctype html>
+<html lang={site.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{site.title}</title>
+    <meta name="description" content={site.description} />
+    <meta name="theme-color" content="#4F62A0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Caveat:wght@500;700&display=swap"
+    />
+    <script is:inline>document.documentElement.classList.add('d-js');</script>
+  </head>
+  <body class="d-body">
+    <DApp client:load />
+  </body>
+</html>
