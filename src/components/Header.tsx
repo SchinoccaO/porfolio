@@ -41,7 +41,7 @@ export default function Header() {
             </li>
           ))}
         </ul>
-        <a className="btn btn--ink top__cta" href={site.hero.cta.href} onClick={() => setOpen(false)}>
+        <a className="btn btn--lemon top__cta" href={site.hero.cta.href} onClick={() => setOpen(false)}>
           {site.hero.cta.label}
         </a>
       </nav>

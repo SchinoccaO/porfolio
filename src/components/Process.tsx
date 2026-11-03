@@ -4,7 +4,7 @@ import { Reveal } from './ui';
 export default function Process() {
   const p = site.process;
   return (
-    <section className="sec sec--paper process" aria-labelledby="h-proc">
+    <section className="sec sec--violet process" aria-labelledby="h-proc">
       <div className="wrap">
         <Reveal as="p" className="label mono">06 / {p.title}</Reveal>
         <Reveal as="h2" id="h-proc" anim="fadeInLeft" className="h2">{p.title}</Reveal>

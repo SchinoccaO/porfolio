@@ -22,7 +22,7 @@ export default function ContactForm() {
         <span className="mono">{f.problem}</span>
         <textarea name="problem" rows={4} placeholder={f.problemPlaceholder} />
       </label>
-      <button type="submit" className="btn btn--orange btn--xl">
+      <button type="submit" className="btn btn--lemon btn--xl">
         {f.submit}
         <span aria-hidden="true" className="btn__arrow">→</span>
       </button>
