@@ -56,6 +56,12 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
     <p><b>Mensaje:</b></p>
     <p style="white-space:pre-wrap">${esc(problem)}</p>`;
 
+  const missing = (['RESEND_API_KEY', 'CONTACT_FROM', 'CONTACT_TO'] as const).filter((k) => !env[k]);
+  if (missing.length) {
+    console.error('missing_env', missing.join(','));
+    return json({ error: 'send_failed' }, 502);
+  }
+
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: { Authorization: `Bearer ${env.RESEND_API_KEY.trim()}`, 'Content-Type': 'application/json' },

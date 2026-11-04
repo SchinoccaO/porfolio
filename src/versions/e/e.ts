@@ -86,10 +86,16 @@ document.querySelectorAll<HTMLFormElement>('form[data-e-form]').forEach((form) =
   const problemEl = form.querySelector<HTMLTextAreaElement>('textarea[name=problem]')!;
   const stepRest = form.querySelector<HTMLElement>('[data-e-more]')!;
   const emailOk = () => /^\S+@\S+\.\S+$/.test(emailEl.value);
-  // Send unlocks only once the message is a real sentence, not at the first keystroke.
-  const complete = () => emailOk() && typeEl.value !== '' && problemEl.value.trim().length > 12;
+  // Send unlocks only once the message has a minimum length; the counter tells the visitor why.
+  const countEl = form.querySelector<HTMLElement>('[data-e-count]')!;
+  const min = Number(countEl.dataset.min);
+  const complete = () => emailOk() && typeEl.value !== '' && problemEl.value.trim().length >= min;
   const sync = () => {
     if (emailOk() && typeEl.value !== '') stepRest.classList.add('is-open');
+    const len = problemEl.value.trim().length;
+    countEl.textContent = len >= min
+      ? countEl.dataset.done ?? ''
+      : (countEl.dataset.more ?? '').replace('{n}', String(min)).replace('{left}', String(min - len));
     btn.disabled = !complete();
   };
   form.addEventListener('input', sync);
@@ -112,6 +118,7 @@ document.querySelectorAll<HTMLFormElement>('form[data-e-form]').forEach((form) =
       });
       if (!res.ok) throw new Error(String(res.status));
       form.reset();
+      sync();
       show('ok');
     } catch {
       show('error');

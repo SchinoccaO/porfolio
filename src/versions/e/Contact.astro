@@ -60,6 +60,7 @@ const channels = c.channels.filter((ch) => ch.label !== 'Email' && !ch.value.sta
               </div>
               <label class="e-field"><span>{f.problem}</span>
                 <textarea name="problem" rows="3" required maxlength="1500" placeholder={f.problemPlaceholder}></textarea>
+                <small data-e-count data-min={f.problemMin} data-more={f.problemHintMore} data-done={f.problemHintDone}>{f.problemHintMore.replace('{n}', String(f.problemMin)).replace('{left}', String(f.problemMin))}</small>
               </label>
             </div>
           </div>
