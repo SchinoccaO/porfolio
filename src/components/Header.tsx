@@ -2,6 +2,15 @@ import { useEffect, useState } from 'react';
 import { site } from '../content/site';
 
 /** Sticky top bar. Mobile: brand + menu button opening a full-screen panel. Desktop: inline links + CTA. */
+// Section ids must match the sections in SiteApp. Labels come from the content file.
+const NAV = [
+  { id: 'que-te-doy', label: site.offer.title },
+  { id: 'servicios', label: site.services.title },
+  { id: 'motofix', label: site.motofix.title },
+  { id: 'sobre-mi', label: site.about.title },
+  { id: 'contacto', label: site.contact.title },
+];
+
 export default function Header() {
   const [open, setOpen] = useState(false);
 
@@ -18,7 +27,6 @@ export default function Header() {
   return (
     <header className="top">
       <a className="top__brand" href="#top" onClick={() => setOpen(false)}>
-        <span className="top__mark" aria-hidden="true">OS</span>
         <span className="top__name">{site.name}</span>
       </a>
       <button
@@ -33,7 +41,7 @@ export default function Header() {
       </button>
       <nav id="menu" className={`top__nav${open ? ' is-open' : ''}`} aria-label="Secciones">
         <ul>
-          {site.nav.map((n) => (
+          {NAV.map((n) => (
             <li key={n.id}>
               <a href={`#${n.id}`} onClick={() => setOpen(false)}>
                 {n.label}

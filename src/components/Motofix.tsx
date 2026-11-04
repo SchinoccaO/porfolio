@@ -1,33 +1,32 @@
 import { site } from '../content/site';
-import { Reveal } from './ui';
+
+const lower = (t: string) => t.charAt(0).toLowerCase() + t.slice(1);
 
 export default function Motofix() {
   const m = site.motofix;
+  const work = site.works.items[0];
+  // Four highlights out of the full list, written as one sentence instead of chips.
+  const hi = [m.built[1], m.built[2], m.built[3], m.built[4]].map(lower);
+  const sentence = `${hi.slice(0, -1).join(', ')} y ${hi[hi.length - 1]}.`;
   return (
-    <section id="motofix" className="sec sec--ink motofix" aria-labelledby="h-moto">
-      <div className="wrap">
-        <Reveal as="p" className="label mono">03 / {m.kicker}</Reveal>
-        <Reveal as="h2" id="h-moto" anim="fadeInLeft" className="h2 motofix__title">{m.title}</Reveal>
-        <div className="motofix__grid">
-          <div>
-            <Reveal as="p" className="body body--lead">{m.lead}</Reveal>
-            <Reveal as="p" className="body" delay={80}>{m.why}</Reveal>
-            <Reveal as="p" className="motofix__status mono" delay={120}>{m.status}</Reveal>
-            <Reveal className="motofix__cta" delay={160}>
-              <a className="btn btn--paper" href={m.cta.href} target="_blank" rel="noopener noreferrer">
-                {m.cta.label}
-                <span aria-hidden="true" className="btn__arrow">↗</span>
-              </a>
-            </Reveal>
-          </div>
-          <Reveal as="div" className="hud hud--dark" anim="fadeInUp">
-            <p className="hud__head mono"><span>{m.builtTitle}</span><span>MX</span></p>
-            <ul className="chips">
-              {m.built.map((b) => (
-                <li key={b}>{b}</li>
-              ))}
-            </ul>
-          </Reveal>
+    <section id="motofix" className="sec motofix" aria-labelledby="h-moto">
+      <div className="wrap motofix__grid">
+        <div className="motofix__head">
+          <p className="kicker">{m.kicker}</p>
+          <h2 id="h-moto" className="h2 motofix__title">{m.title}</h2>
+          <p className="motofix__kind">{work.kind}. {work.desc}</p>
+        </div>
+        <div className="motofix__body">
+          <p className="motofix__lead">{m.lead}</p>
+          <p className="body">{m.why}</p>
+          <p className="body">
+            <strong>{m.builtTitle}:</strong> {sentence}
+          </p>
+          <p className="motofix__status">{m.status}</p>
+          <a className="btn btn--lemon motofix__cta" href={work.href} target="_blank" rel="noopener noreferrer">
+            {m.cta.label}
+            <span aria-hidden="true" className="btn__arrow">↗</span>
+          </a>
         </div>
       </div>
     </section>

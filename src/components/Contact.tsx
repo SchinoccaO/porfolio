@@ -1,30 +1,31 @@
 import { site } from '../content/site';
 import ContactForm from './ContactForm';
-import { Reveal } from './ui';
 
 export default function Contact() {
   const c = site.contact;
+  // TODO channels (email, whatsapp, linkedin) stay hidden until the real values exist.
+  const channels = c.channels.filter((ch) => !ch.value.startsWith('TODO'));
   return (
-    <section id="contacto" className="sec sec--ink contact" aria-labelledby="h-contact">
+    <section id="contacto" className="sec contact" aria-labelledby="h-contact">
       <div className="wrap contact__grid">
         <div>
-          <Reveal as="p" className="label mono">07 / {c.title}</Reveal>
-          <Reveal as="h2" id="h-contact" anim="fadeInLeft" className="h2">{c.title}</Reveal>
-          <Reveal as="p" className="body body--lead">{c.intro}</Reveal>
+          <h2 id="h-contact" className="h2">{c.title}</h2>
+          <p className="contact__intro">{c.intro}</p>
           <ul className="channels">
-            {c.channels.map((ch) => (
+            {channels.map((ch) => (
               <li key={ch.label}>
-                <span className="mono">{ch.label}</span> {ch.value}
+                <span>{ch.label}</span> {ch.value}
               </li>
             ))}
             <li>
-              <span className="mono">Instagram</span> {site.handle}
+              <span>Instagram</span>{' '}
+              <a href={`https://instagram.com/${site.handle.replace('@', '')}`} target="_blank" rel="noopener noreferrer">
+                {site.handle}
+              </a>
             </li>
           </ul>
         </div>
-        <Reveal anim="fadeInUp" className="contact__form">
-          <ContactForm />
-        </Reveal>
+        <ContactForm />
       </div>
     </section>
   );
