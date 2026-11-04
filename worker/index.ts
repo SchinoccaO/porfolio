@@ -1,7 +1,8 @@
-// Cloudflare Pages Function: receives the contact form and emails it to Oriana via Resend.
-// Env (Pages > Settings > Variables and secrets): RESEND_API_KEY (secret), CONTACT_TO, CONTACT_FROM.
+// Cloudflare Worker: serves the static site (ASSETS) and handles POST /api/contacto, emailing the form to Oriana via Resend.
+// Env (Worker > Settings > Variables and secrets): RESEND_API_KEY (secret), CONTACT_TO, CONTACT_FROM.
 
 interface Env {
+  ASSETS: { fetch: (req: Request) => Promise<Response> };
   RESEND_API_KEY: string;
   CONTACT_TO: string;
   CONTACT_FROM: string;
@@ -24,7 +25,7 @@ function normalizePhone(raw: string): string {
   return d.length >= 12 && d.length <= 14 ? d : '';
 }
 
-export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
+async function handleContact(request: Request, env: Env): Promise<Response> {
   let raw: Record<string, unknown>;
   try {
     raw = await request.json();
@@ -68,4 +69,14 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   });
 
   return res.ok ? json({ ok: true }) : json({ error: 'send_failed' }, 502);
+}
+
+export default {
+  async fetch(request: Request, env: Env): Promise<Response> {
+    const { pathname } = new URL(request.url);
+    if (pathname === '/api/contacto') {
+      return request.method === 'POST' ? handleContact(request, env) : json({ error: 'method_not_allowed' }, 405);
+    }
+    return env.ASSETS.fetch(request);
+  },
 };
