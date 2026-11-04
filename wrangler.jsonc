@@ -9,6 +9,10 @@
     "not_found_handling": "404-page",
     "run_worker_first": ["/api/*"]
   },
+  "vars": {
+    "CONTACT_TO": "orianaschinocca@gmail.com",
+    "CONTACT_FROM": "Oriana Schinocca <contacto@orianaschinocca.com>"
+  },
   "keep_vars": true,
   "observability": { "enabled": true }
 }
