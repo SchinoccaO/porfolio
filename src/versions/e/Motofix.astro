@@ -1,17 +1,32 @@
 ---
 import { site } from '../../content/site';
 const m = site.motofix;
+const k = m.mock;
 ---
 <section class="e-panel e-panel--violet e-moto" id="motofix">
   <div class="e-wrap e-moto__grid">
-    <div class="e-moto__head e-reveal">
+    <div class="e-moto__story e-reveal">
       <p class="e-kicker e-kicker--lemon">{m.kicker}</p>
       <h2 class="e-h2 e-moto__title">{m.title}</h2>
-    </div>
-    <div class="e-moto__story e-reveal">
       <p class="e-lead">{m.lead}</p>
       <p class="e-moto__summary">{m.summary}</p>
       <a class="e-link" href={m.cta.href} target="_blank" rel="noopener">{m.cta.label} <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="e-moto__shot e-reveal" aria-hidden="true">
+      <div class="mf-win">
+        <div class="mf-bar"><i></i><i></i><i></i><span class="mf-url">{k.url}</span></div>
+        <div class="mf-page">
+          <p class="mf-eyebrow">{k.eyebrow}</p>
+          <p class="mf-h">{k.headline} <span class="mf-accent">{k.accent}</span></p>
+          <div class="mf-search">
+            <span class="mf-search__field">{k.placeholder}</span>
+            <span class="mf-search__btn">{k.button}</span>
+          </div>
+          <div class="mf-chips">
+            {k.chips.map((c, i) => <span class={`mf-chip mf-chip--${i}`}>{c}</span>)}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
