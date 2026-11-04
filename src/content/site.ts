@@ -3,9 +3,9 @@
 
 export const site = {
   lang: "es",
-  title: "Oriana Schinocca | Desarrolladora full stack y analista funcional",
+  title: "Oriana Schinocca | Diseño y desarrollo web para negocios",
   description:
-    "Oriana Schinocca: desarrolladora full stack y analista funcional de Córdoba. Fundadora de MotoFIX. Sitios web hechos a tu medida.",
+    "Webs para negocios que tus clientes entienden: plantillas o a medida, con dominio propio, turnos, tienda online y más. Desarrolladora full stack desde Córdoba, para todo el país.",
   name: "Oriana Schinocca",
   handle: "@_orischinocca",
   hero: {
@@ -299,6 +299,12 @@ export const site = {
     ],
   },
   footer: "© Oriana Schinocca. Hecho en Córdoba.",
+  socials: [
+    { label: "Instagram", href: "https://www.instagram.com/_orischinocca" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/oriana-schinocca-3bb70020a" },
+    { label: "GitHub", href: "https://github.com/SchinoccaO" },
+    { label: "X", href: "https://x.com/_orischinocca" },
+  ],
 } as const;
 
 export type Site = typeof site;
