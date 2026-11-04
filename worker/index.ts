@@ -68,6 +68,7 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
     }),
   });
 
+  if (!res.ok) console.error('resend_failed', res.status, await res.text());
   return res.ok ? json({ ok: true }) : json({ error: 'send_failed' }, 502);
 }
 
