@@ -84,12 +84,12 @@ document.querySelectorAll<HTMLFormElement>('form[data-e-form]').forEach((form) =
   const emailEl = form.querySelector<HTMLInputElement>('input[name=email]')!;
   const typeEl = form.querySelector<HTMLSelectElement>('select[name=type]')!;
   const problemEl = form.querySelector<HTMLTextAreaElement>('textarea[name=problem]')!;
-  const [stepProblem, stepRest] = Array.from(form.querySelectorAll<HTMLElement>('[data-e-more]'));
+  const stepRest = form.querySelector<HTMLElement>('[data-e-more]')!;
   const emailOk = () => /^\S+@\S+\.\S+$/.test(emailEl.value);
-  const complete = () => emailOk() && typeEl.value !== '' && problemEl.value.trim().length > 0;
+  // Send unlocks only once the message is a real sentence, not at the first keystroke.
+  const complete = () => emailOk() && typeEl.value !== '' && problemEl.value.trim().length > 12;
   const sync = () => {
-    if (emailOk() && typeEl.value !== '') stepProblem.classList.add('is-open');
-    if (problemEl.value.trim().length > 12) stepRest.classList.add('is-open');
+    if (emailOk() && typeEl.value !== '') stepRest.classList.add('is-open');
     btn.disabled = !complete();
   };
   form.addEventListener('input', sync);

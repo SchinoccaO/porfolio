@@ -45,13 +45,6 @@ const channels = c.channels.filter((ch) => ch.label !== 'Email' && !ch.value.sta
           </label>
           <div class="e-more" data-e-more>
             <div class="e-more__in">
-              <label class="e-field"><span>{f.problem}</span>
-                <textarea name="problem" rows="3" required maxlength="1500" placeholder={f.problemPlaceholder}></textarea>
-              </label>
-            </div>
-          </div>
-          <div class="e-more" data-e-more>
-            <div class="e-more__in">
               <div class="e-row">
                 <label class="e-field"><span>{f.deadline}</span>
                   <select name="deadline">
@@ -65,6 +58,9 @@ const channels = c.channels.filter((ch) => ch.label !== 'Email' && !ch.value.sta
                   <small>{f.phoneHint}</small>
                 </label>
               </div>
+              <label class="e-field"><span>{f.problem}</span>
+                <textarea name="problem" rows="3" required maxlength="1500" placeholder={f.problemPlaceholder}></textarea>
+              </label>
             </div>
           </div>
           <input class="e-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
