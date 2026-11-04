@@ -31,6 +31,55 @@ import Contact from '../versions/e/Contact.astro';
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Oriana Schinocca, desarrollo web a tu medida" />
     <meta name="twitter:card" content="summary_large_image" />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Person',
+            '@id': 'https://orianaschinocca.com/#oriana',
+            name: site.name,
+            url: 'https://orianaschinocca.com/',
+            image: 'https://orianaschinocca.com/e/oriana.webp',
+            jobTitle: 'Desarrolladora full stack y analista funcional',
+            description: site.description,
+            address: { '@type': 'PostalAddress', addressLocality: 'Córdoba', addressCountry: 'AR' },
+            knowsAbout: ['Desarrollo web', 'React', 'Node.js', 'Express', 'Python', 'SQL', 'MongoDB', 'TypeScript', 'Astro', 'Análisis funcional'],
+            sameAs: site.socials.map((s) => s.href),
+            owns: { '@id': 'https://motofix.ar/#org' },
+          },
+          {
+            '@type': 'ProfessionalService',
+            '@id': 'https://orianaschinocca.com/#servicio',
+            name: 'Oriana Schinocca · Desarrollo web',
+            url: 'https://orianaschinocca.com/',
+            image: 'https://orianaschinocca.com/og.png',
+            description: 'Sitios web a medida para negocios y emprendedores, con dominio propio y sistemas a medida.',
+            areaServed: { '@type': 'Country', name: 'Argentina' },
+            address: { '@type': 'PostalAddress', addressLocality: 'Córdoba', addressCountry: 'AR' },
+            founder: { '@id': 'https://orianaschinocca.com/#oriana' },
+            inLanguage: 'es-AR',
+          },
+          {
+            '@type': 'Organization',
+            '@id': 'https://motofix.ar/#org',
+            name: 'MotoFIX',
+            url: 'https://motofix.ar/',
+            description: 'Talleres, gomerías, repuestos y grúas para tu moto.',
+            founder: { '@id': 'https://orianaschinocca.com/#oriana' },
+          },
+          {
+            '@type': 'WebSite',
+            '@id': 'https://orianaschinocca.com/#web',
+            url: 'https://orianaschinocca.com/',
+            name: 'Oriana Schinocca',
+            inLanguage: 'es-AR',
+            publisher: { '@id': 'https://orianaschinocca.com/#oriana' },
+          },
+        ],
+      })}
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

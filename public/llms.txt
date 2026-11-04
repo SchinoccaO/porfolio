@@ -1,0 +1,31 @@
+# Oriana Schinocca
+
+> Desarrolladora full stack y analista funcional de Córdoba, Argentina. Fundadora de MotoFIX. Hace sitios web a medida para negocios y emprendedores.
+
+Sitio oficial: https://orianaschinocca.com/
+
+## Qué hace
+
+- Sitios web a medida para negocios: diseño responsivo (celular y compu), con dominio propio.
+- Modelos de web que se adaptan al negocio (colores, logo) o una web única creada desde cero.
+- Sistemas a medida además de la web: calendario de reservas, control de stock, tienda online (Mercado Pago o Tiendanube), CRM, panel de administración, avisos y tareas automáticas.
+- Acompañamiento con el registro de marca en el INPI.
+- Asistentes de IA para tareas repetitivas del negocio (propuesta en desarrollo, todavía no disponible).
+
+## Tecnologías
+
+React, Node.js, Express, Python, SQL, SQL Server, MongoDB, TypeScript, Tailwind, Astro, Git y GitHub.
+
+## Sobre ella
+
+- Vive en Córdoba, Argentina.
+- Estudia Ingeniería en Sistemas y la Tecnicatura en Programación en la UTN.
+- Fundó MotoFIX (https://motofix.ar): talleres, gomerías, repuestos y grúas para tu moto. Es un proyecto propio donde prueba sus soluciones.
+
+## Contacto y perfiles
+
+- Formulario de contacto: https://orianaschinocca.com/#contacto
+- Instagram: https://www.instagram.com/_orischinocca
+- LinkedIn: https://www.linkedin.com/in/oriana-schinocca-3bb70020a
+- GitHub: https://github.com/SchinoccaO
+- X: https://x.com/_orischinocca

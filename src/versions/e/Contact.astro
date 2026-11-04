@@ -76,5 +76,6 @@ const channels = c.channels.filter((ch) => ch.label !== 'Email' && !ch.value.sta
   <div class="e-wrap e-footer__in">
     <p>{site.footer}</p>
     <nav aria-label="Pie">{eNav.map((n) => <a href={`#${n.id}`}>{n.label}</a>)}</nav>
+    <nav class="e-social" aria-label="Redes">{site.socials.map((s) => <a href={s.href} target="_blank" rel="noopener me">{s.label}</a>)}</nav>
   </div>
 </footer>
