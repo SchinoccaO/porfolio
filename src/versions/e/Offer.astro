@@ -1,6 +1,10 @@
 ---
 import { site } from '../../content/site';
 const o = site.offer;
+// Emphasise the four capabilities inside the paragraph instead of repeating them as chips.
+const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const emphasis = ['formularios', 'calendario de reservas', 'control de tu stock', 'tienda virtual'];
+const logicHtml = o.logic.replace(new RegExp(`(${emphasis.map(esc).join('|')})`, 'g'), '<strong>$1</strong>');
 ---
 <section class="e-panel e-panel--paper e-offer" id="que-te-doy">
   <div class="e-wrap e-offer__grid">
@@ -13,9 +17,8 @@ const o = site.offer;
       <p class="e-note">{o.inpi}</p>
     </div>
     <div class="e-offer__logic e-reveal">
-      <h3 class="e-script e-kicker">{o.logicTitle}</h3>
-      <p>{o.logic}</p>
-      <ul class="e-pills">{o.logicItems.map((i) => <li>{i}</li>)}</ul>
+      <h3 class="e-h3">{o.logicTitle}</h3>
+      <p set:html={logicHtml} />
     </div>
   </div>
 </section>

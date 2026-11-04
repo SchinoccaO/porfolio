@@ -63,8 +63,7 @@ if (sticky && heroCta && contact && 'IntersectionObserver' in window) {
   const render = () => {
     const on = pastHero && !atContact;
     sticky.classList.toggle('is-on', on);
-    if (on) sticky.removeAttribute('tabindex');
-    else sticky.setAttribute('tabindex', '-1');
+    sticky.querySelector('a')?.setAttribute('tabindex', on ? '0' : '-1');
     sticky.setAttribute('aria-hidden', String(!on));
   };
   new IntersectionObserver(([en]) => {

@@ -41,7 +41,9 @@ import Contact from '../versions/e/Contact.astro';
       <About />
       <Contact />
     </main>
-    <a class="e-btn e-sticky" href={site.hero.cta.href} data-e-sticky tabindex="-1" aria-hidden="true">{site.hero.cta.label} <span aria-hidden="true">→</span></a>
+    <div class="e-bar" data-e-sticky aria-hidden="true">
+      <a class="e-btn" href={site.hero.cta.href} tabindex="-1">{site.hero.cta.label} <span aria-hidden="true">→</span></a>
+    </div>
     <script>
       import '../versions/e/e';
     </script>

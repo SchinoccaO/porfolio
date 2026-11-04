@@ -4,21 +4,21 @@ const m = site.motofix;
 ---
 <section class="e-panel e-panel--violet e-moto" id="motofix">
   <div class="e-wrap">
-    <div class="e-reveal">
-      <p class="e-script e-kicker e-kicker--lemon">{m.kicker}</p>
-      <h2 class="e-h2 e-moto__title">{m.title}</h2>
-    </div>
-    <div class="e-moto__grid">
-      <div class="e-reveal">
+    <div class="e-moto__top">
+      <div class="e-moto__head e-reveal">
+        <p class="e-kicker e-kicker--lemon">{m.kicker}</p>
+        <h2 class="e-h2 e-moto__title">{m.title}</h2>
+        <p class="e-moto__status">{m.status}</p>
+        <a class="e-link" href={m.cta.href} target="_blank" rel="noopener">{m.cta.label} <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="e-moto__story e-reveal">
         <p class="e-lead">{m.lead}</p>
         <p>{m.why}</p>
-        <p class="e-moto__status">{m.status}</p>
-        <a class="e-btn e-btn--lemon" href={m.cta.href} target="_blank" rel="noopener">{m.cta.label}<span aria-hidden="true">↗</span></a>
       </div>
-      <div class="e-moto__built e-reveal">
-        <h3 class="e-h3">{m.builtTitle}</h3>
-        <ul class="e-pills e-pills--light">{m.built.map((b) => <li>{b}</li>)}</ul>
-      </div>
+    </div>
+    <div class="e-moto__built e-reveal">
+      <h3 class="e-h3">{m.builtTitle}</h3>
+      <ul class="e-built">{m.built.map((b) => <li>{b}</li>)}</ul>
     </div>
   </div>
 </section>
