@@ -7,8 +7,8 @@ const s = site.services;
     <h2 class="e-h2 e-reveal">{s.title}</h2>
 
     <div class="e-plans e-reveal">
-      {s.plans.map((plan) => (
-        <article class="e-plan">
+      {s.plans.map((plan, n) => (
+        <article class={`e-plan e-plan--${n}`}>
           <h3 class="e-plan__name">{plan.name}</h3>
           <p class="e-plan__pitch">{plan.pitch}</p>
           <p class="e-plan__desc">{plan.desc}</p>
@@ -23,6 +23,7 @@ const s = site.services;
       <i class="e-tape e-tape--c" aria-hidden="true"></i>
       <div>
         <h3 class="e-h3">{s.extrasTitle}</h3>
+        <p class="e-extras__intro">{s.extrasIntro}</p>
         <ul class="e-extras">{s.extras.map((x) => <li>{x}</li>)}</ul>
       </div>
       <div class="e-notes">

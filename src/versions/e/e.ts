@@ -75,5 +75,77 @@ if (sticky && heroCta && contact && 'IntersectionObserver' in window) {
   render();
 }
 
-// ---- form: no backend yet ----
-document.querySelectorAll('form[data-e-form]').forEach((f) => f.addEventListener('submit', (ev) => ev.preventDefault()));
+// ---- contact form: POST to the Cloudflare Pages Function ----
+document.querySelectorAll<HTMLFormElement>('form[data-e-form]').forEach((form) => {
+  const msg = form.querySelector<HTMLElement>('[data-e-msg]')!;
+  const btn = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
+  const label = btn.querySelector<HTMLElement>('[data-e-label]')!;
+  // Fields appear one step at a time; Send unlocks only when email, type and message are valid.
+  const emailEl = form.querySelector<HTMLInputElement>('input[name=email]')!;
+  const typeEl = form.querySelector<HTMLSelectElement>('select[name=type]')!;
+  const problemEl = form.querySelector<HTMLTextAreaElement>('textarea[name=problem]')!;
+  const [stepProblem, stepRest] = Array.from(form.querySelectorAll<HTMLElement>('[data-e-more]'));
+  const emailOk = () => /^\S+@\S+\.\S+$/.test(emailEl.value);
+  const complete = () => emailOk() && typeEl.value !== '' && problemEl.value.trim().length > 0;
+  const sync = () => {
+    if (emailOk() && typeEl.value !== '') stepProblem.classList.add('is-open');
+    if (problemEl.value.trim().length > 12) stepRest.classList.add('is-open');
+    btn.disabled = !complete();
+  };
+  form.addEventListener('input', sync);
+  form.addEventListener('change', sync);
+  const show = (kind: 'ok' | 'error' | 'invalid') => {
+    msg.textContent = msg.dataset[kind] ?? '';
+    msg.dataset.state = kind;
+  };
+  form.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
+    if (!/^\S+@\S+\.\S+$/.test(data.email ?? '') || !(data.problem ?? '').trim()) return show('invalid');
+    btn.disabled = true;
+    label.textContent = btn.dataset.sending ?? '';
+    try {
+      const res = await fetch('/api/contacto', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      form.reset();
+      show('ok');
+    } catch {
+      show('error');
+    } finally {
+      btn.disabled = !complete();
+      label.textContent = btn.dataset.label ?? '';
+    }
+  });
+});
+
+// ---- AI details: closing from the bottom keeps the toggle reachable ----
+document.querySelectorAll('.e-ai__close').forEach((b) => b.addEventListener('click', () => {
+  const d = b.closest('details');
+  if (!d) return;
+  d.open = false;
+  d.scrollIntoView({ block: 'center', behavior: 'smooth' });
+}));
+
+// ---- MotoFIX mock: tapping a pill types its word into the search field ----
+const mfField = document.querySelector<HTMLElement>('.mf-search__field');
+const mfTyped = mfField?.querySelector<HTMLElement>('.mf-typed');
+if (mfField && mfTyped) {
+  let timer = 0;
+  document.querySelectorAll<HTMLButtonElement>('[data-mf-chip]').forEach((chip) => chip.addEventListener('click', () => {
+    const word = chip.textContent?.trim() ?? '';
+    window.clearInterval(timer);
+    mfField.classList.add('is-filled');
+    mfTyped.textContent = '';
+    document.querySelectorAll('[data-mf-chip]').forEach((c) => c.classList.toggle('is-on', c === chip));
+    let i = 0;
+    timer = window.setInterval(() => {
+      i += 1;
+      mfTyped.textContent = word.slice(0, i);
+      if (i >= word.length) window.clearInterval(timer);
+    }, 70);
+  }));
+}

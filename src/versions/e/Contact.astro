@@ -4,7 +4,10 @@ import { eNav } from './nav';
 const c = site.contact;
 const f = c.fields;
 // Placeholder channels (value starts with "TODO") are never shown.
-const channels = c.channels.filter((ch) => !ch.value.startsWith('TODO'));
+const wa = c.whatsapp;
+const waHref = wa.number ? `https://wa.me/${wa.number}?text=${encodeURIComponent(wa.text)}` : '';
+const email = c.channels.find((ch) => ch.label === 'Email' && !ch.value.startsWith('TODO'))?.value ?? '';
+const channels = c.channels.filter((ch) => ch.label !== 'Email' && !ch.value.startsWith('TODO'));
 ---
 <section class="e-contact" id="contacto">
   <div class="e-wrap">
@@ -12,34 +15,69 @@ const channels = c.channels.filter((ch) => !ch.value.startsWith('TODO'));
       <div class="e-contact__lead">
         <h2 class="e-h2 e-reveal">{c.title}</h2>
         <p class="e-contact__pull e-reveal">{c.headline}</p>
-      </div>
-      <div class="e-contact__side">
-        <form class="e-form e-reveal" data-e-form>
-          <label class="e-field"><span>{f.reach}</span>
-            <input name="reach" type="text" required autocomplete="email" placeholder={f.reachPlaceholder} />
-          </label>
-          <label class="e-field"><span>{f.type}</span>
-            <select name="type">{f.typeOptions.map((o) => <option>{o}</option>)}</select>
-          </label>
-          <label class="e-field"><span>{f.deadline}</span>
-            <input name="deadline" type="text" placeholder={f.deadlinePlaceholder} />
-          </label>
-          <label class="e-field"><span>{f.problem}</span>
-            <textarea name="problem" rows="4" placeholder={f.problemPlaceholder}></textarea>
-          </label>
-          <button class="e-btn" type="submit">{f.submit}<span aria-hidden="true">→</span></button>
-          {/* TODO: no backend yet. Submit is a no-op until a form service is wired. */}
-        </form>
-        {channels.length > 0 && (
-          <ul class="e-channels e-reveal">
-            {channels.map((ch) => <li><strong>{ch.label}</strong> {ch.value}</li>)}
-          </ul>
+        {(waHref || email) && (
+          <div class="e-alt e-reveal">
+            {waHref && (
+              <a class="e-btn e-wa" href={waHref} target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.2-1.3A10 10 0 1 0 12 2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path transform="translate(6 6) scale(0.5)" fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                {wa.label}
+              </a>
+            )}
+            {email && <a class="e-mail" href={`mailto:${email}`}>o por mail: <strong>{email}</strong></a>}
+          </div>
         )}
       </div>
+      <div class="e-contact__side">
+        <form class="e-form e-reveal" data-e-form novalidate>
+          <div class="e-row">
+            <label class="e-field"><span>{f.name}</span>
+              <input name="name" type="text" maxlength="80" autocomplete="name" placeholder={f.namePlaceholder} />
+            </label>
+            <label class="e-field"><span>{f.email}</span>
+              <input name="email" type="email" required maxlength="120" autocomplete="email" inputmode="email" placeholder={f.emailPlaceholder} />
+            </label>
+          </div>
+          <label class="e-field"><span>{f.type}</span>
+            <select name="type" required>
+              <option value="" disabled selected>{f.typePlaceholder}</option>
+              {f.typeOptions.map((o) => <option value={o}>{o}</option>)}
+            </select>
+          </label>
+          <div class="e-more" data-e-more>
+            <div class="e-more__in">
+              <label class="e-field"><span>{f.problem}</span>
+                <textarea name="problem" rows="3" required maxlength="1500" placeholder={f.problemPlaceholder}></textarea>
+              </label>
+            </div>
+          </div>
+          <div class="e-more" data-e-more>
+            <div class="e-more__in">
+              <div class="e-row">
+                <label class="e-field"><span>{f.deadline}</span>
+                  <select name="deadline">
+                    <option value="" selected>{f.deadlinePlaceholder}</option>
+                    {f.deadlineOptions.map((o) => <option value={o}>{o}</option>)}
+                  </select>
+                  <small>{f.deadlineHint}</small>
+                </label>
+                <label class="e-field"><span>{f.phone}</span>
+                  <input name="phone" type="tel" maxlength="20" autocomplete="tel-national" inputmode="tel" placeholder={f.phonePlaceholder} />
+                  <small>{f.phoneHint}</small>
+                </label>
+              </div>
+            </div>
+          </div>
+          <input class="e-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <button class="e-btn" type="submit" disabled data-label={f.submit} data-sending={f.sending}><span data-e-label>{f.submit}</span><span aria-hidden="true">→</span></button>
+          <p class="e-form__msg" role="status" aria-live="polite" data-e-msg data-ok={f.ok} data-error={f.error} data-invalid={f.invalid}></p>
+        </form>
+      </div>
     </div>
-    <footer class="e-footer">
-      <p>{site.footer}</p>
-      <nav aria-label="Pie">{eNav.map((n) => <a href={`#${n.id}`}>{n.label}</a>)}</nav>
-    </footer>
   </div>
 </section>
+<footer class="e-footer">
+  <div class="e-wrap e-footer__in">
+    <p>{site.footer}</p>
+    <nav aria-label="Pie">{eNav.map((n) => <a href={`#${n.id}`}>{n.label}</a>)}</nav>
+  </div>
+</footer>

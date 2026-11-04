@@ -18,7 +18,7 @@ const rich = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
     </div>
     <div class="e-about__body e-reveal">
       <h2 class="e-h2">{a.title}</h2>
-      {a.paragraphs.map((p) => <p>{p}</p>)}
+      {a.paragraphs.map((p) => <p set:html={rich(p)} />)}
       <div class="e-tech">
         <h3 class="e-h3">{t.title}</h3>
         {t.items.map((p) => <p set:html={rich(p)} />)}

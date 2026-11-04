@@ -1,16 +1,22 @@
 ---
 import { site } from '../../content/site';
 const o = site.offer;
+const rich = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<mark>$1</mark>');
 ---
 <section class="e-panel e-panel--paper e-offer" id="que-te-doy">
   <div class="e-wrap e-offer__grid">
     <div class="e-offer__intro e-reveal">
       <h2 class="e-h2">{o.title}</h2>
       <p class="e-lead">{o.lead}</p>
+      <p class="e-note e-note--side">{o.inpi}</p>
     </div>
     <div class="e-offer__main e-reveal">
-      <p>{o.own}</p>
-      <p class="e-note">{o.inpi}</p>
+      <ul class="e-own">
+        {o.ownItems.map((it) => (
+          <li><strong set:html={rich(it.big)} /><span>{it.small}</span></li>
+        ))}
+      </ul>
+      <p class="e-note e-note--end">{o.inpi}</p>
     </div>
     <div class="e-offer__logic e-reveal">
       <div class="e-offer__logic-head">
@@ -19,12 +25,22 @@ const o = site.offer;
       </div>
       <ul class="e-systems">
         {o.logicItems.map((item) => <li>{item}</li>)}
-        <li class="e-systems__ai">
-          <span class="e-systems__tag">{o.ai.tag}</span>
-          <strong>{o.ai.title}</strong>
-          <span>{o.ai.text}</span>
-        </li>
       </ul>
+      <div class="e-systems__ai">
+        <span class="e-systems__tag">{o.ai.tag}</span>
+        <strong>{o.ai.title}</strong>
+        <span>{o.ai.text}</span>
+        <details class="e-ai">
+          <summary>{o.ai.more}</summary>
+          <div class="e-ai__body">
+            <p>{o.ai.detailLead}</p>
+            <ul>{o.ai.detailItems.map((i) => <li>{i}</li>)}</ul>
+            <p>{o.ai.detailClose}</p>
+            <p class="e-ai__soon">{o.ai.soon}</p>
+            <button type="button" class="e-ai__close">{o.ai.less} −</button>
+          </div>
+        </details>
+      </div>
     </div>
   </div>
 </section>

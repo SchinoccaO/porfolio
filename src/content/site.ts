@@ -5,7 +5,7 @@ export const site = {
   lang: "es",
   title: "Oriana Schinocca | Desarrolladora full stack y analista funcional",
   description:
-    "Oriana Schinocca: desarrolladora full stack y analista funcional de Córdoba. Fundadora de Motofix. Sitios web hechos a tu medida.",
+    "Oriana Schinocca: desarrolladora full stack y analista funcional de Córdoba. Fundadora de MotoFIX. Sitios web hechos a tu medida.",
   name: "Oriana Schinocca",
   handle: "@_orischinocca",
   hero: {
@@ -13,8 +13,7 @@ export const site = {
     // Word wrapped by the hand-drawn scribble in the title.
     scribbleWord: "web.",
     sub: "El mejor momento para estar online fue ayer. El segundo es hoy.",
-    cta: { label: "Quiero mi web", href: "#contacto" },
-    cell: { label: "Quiero mi web", href: "#contacto" },
+    cta: { label: "Empezá ahora", href: "#contacto" },
     identity:
       "Oriana Schinocca · Desarrolladora full stack y analista funcional · @_orischinocca",
     giantWord: "Oriana",
@@ -33,12 +32,34 @@ export const site = {
   // Owner's own copy (written by her, light spelling fixes only).
   offer: {
     title: "Qué te ofrezco",
-    lead: "Primero entender qué necesitás. Después, hacerlo realidad con criterio técnico y profesionalidad.",
-    own: "Tu dominio propio, modelos de web que se adaptan a tu negocio y, si necesitás más, una hecha a tu medida. Con personalidad, para que se note quién sos.",
-    inpi: "Me encargo del registro de tu marca en el INPI, para que tu nombre sea tuyo de verdad.",
+    lead: "Primero escucho qué necesita tu negocio. Después lo convierto en una web que funciona, con criterio técnico y atención al detalle.",
+    // Punchy list; text between ** ** gets the lemon highlight.
+    ownItems: [
+      {
+        big: "Tu **dominio propio**.",
+        small:
+          "El nombre de tu negocio en un link profesional y seguro, para que te encuentren desde cualquier buscador o IA.",
+      },
+      {
+        big: "Modelos que **se adaptan** a tu negocio.",
+        small:
+          "Elegís un diseño, adaptamos tus colores y tu logo, y listo. Funciona en celular y compu.",
+      },
+      {
+        big: "¿Querés algo **único**?",
+        small:
+          "Creo tu web desde cero, con diseño responsivo, creativo y funcional. Así tu negocio se destaca y se recuerda.",
+      },
+      {
+        big: "Con **personalidad**, para que se note quién sos.",
+        small:
+          "Tu web es tu cartelera online. Que se vea y se sienta como vos, para que tus clientes confíen y vuelvan.",
+      },
+    ],
+    inpi: "También te acompaño con el registro de tu marca en el INPI, para que tu nombre sea legalmente tuyo.",
     logicTitle: "Si tu negocio necesita más que una web",
     logicLead:
-      "Algunas cosas que puedo armarte además de la web, según cómo trabaja tu negocio:",
+      "Algunas cositas que puedo armarte de manera personalizada además de la web, según cómo trabaja tu negocio:",
     logicItems: [
       "Calendario de reservas",
       "Control de stock",
@@ -49,23 +70,38 @@ export const site = {
     ],
     // Reserved slot for a future, separate service. Keep the claim modest.
     ai: {
-      title: "Gestor de IA para tu negocio",
-      tag: "Próximamente",
-      text: "Un asistente que se encarga de tareas repetitivas de tu negocio. Todavía lo estoy armando.",
+      title: "Equipo de IA para tu negocio",
+      tag: "¡Próximamente!",
+      text: "Asistentes que se encargan de las tareas repetitivas de tu negocio. Cada uno se personaliza según lo que necesite tu sistema. Vos solo revisás y aprobás.",
+      more: "Ver más",
+      less: "Ver menos",
+      detailLead:
+        "Cada asistente se arma a medida de lo que necesite tu sistema. Algunos ejemplos de tareas que puede hacer, todos los días:",
+      detailItems: [
+        "Un resumen cada mañana por Telegram con lo pendiente.",
+        "Tus documentos, tareas y propuestas ordenados en Notion.",
+        "Borradores de publicaciones con tu forma de hablar.",
+        "Revisa el trabajo y te avisa si algo no cumple tus reglas.",
+      ],
+      detailClose:
+        "Nada se publica sin tu aprobación. Lo pruebo primero en mi propio negocio, MotoFIX, donde ya funciona.",
+      soon: "Es una propuesta tentativa y todavía la estoy armando. Si querés ser de los primeros, escribime.",
     },
   },
   nav: [
     { id: "sobre-mi", label: "Sobre mí" },
-    { id: "motofix", label: "Motofix" },
+    { id: "motofix", label: "MotoFIX" },
     { id: "trabajos", label: "Trabajos" },
     { id: "servicios", label: "Servicios" },
     { id: "contacto", label: "Contacto" },
   ],
   about: {
+    // Plain-language tech block. Text between ** ** is rendered in bold.
+
     title: "Sobre mí",
     paragraphs: [
-      "Soy de Córdoba, soy motera y me gusta construir. No miro cómo otros crean: me tiro al vacío y lo hago.",
-      "Estudio Ingeniería en Sistemas en la UTN FRC y la Tecnicatura en Programación en la UTN San Francisco. Por eso tengo fundamento teórico además de práctica.",
+      "Soy de Córdoba, me apasiona construir y diseñar soluciones eficientes a todo tipo de problemas. **No espero a que se den las oportunidades: las creo.**",
+      "Estudiante avanzada de Ingeniería en Sistemas y de la Tecnicatura en Programación en la UTN. Estoy en constante aprendizaje.",
     ],
     ovalAlt:
       "Oriana sonriendo de costado a la cámara, con el pelo largo y lacio, sentada en su espacio de trabajo.",
@@ -73,13 +109,14 @@ export const site = {
     skills: ["React", "Node", "Express", "Python", "SQL"],
     // Plain-language tech block. Text between ** ** is rendered in bold.
     tech: {
-      title: "Con qué trabajo, en simple",
+      title: "Con qué trabajo, en pocas palabras",
       items: [
-        "Programo tu web y todo lo que va por dentro con **React, Node.js, Express y Python**. Eso hace que funcione rápido y sin vueltas.",
-        "Guardo la información de tu negocio (clientes, turnos, stock) de forma ordenada con bases de datos: **SQL, SQL Server y MongoDB**.",
-        "Uso **inteligencia artificial** todos los días, con **Claude Code y Grok**, para automatizar tareas repetitivas y entregarte más rápido.",
+        "Programo tu web, junto con todo lo que va por dentro, con tecnologías como **React, Node.js, Express y Python**. Elijo la que mejor encaja con tu proyecto, para que funcione rápido y sea eficiente.",
+        "**También diseño.** Pienso cómo se ve y cómo se usa tu web para que tus clientes encuentren rápido lo que buscan, en el celular o en la compu.",
+        "La información de tu negocio (clientes, turnos, stock) queda ordenada en bases de datos como **SQL, SQL Server y MongoDB**, según lo que necesites.",
+        "Hago que la **inteligencia artificial** te sea útil de verdad: armo asistentes que se ocupan de tareas repetitivas de tu negocio, como responder consultas, ordenar información o recordarte lo pendiente, sin que tengas que aprender nada técnico.",
       ],
-      more: "Y también TypeScript, Tailwind, Astro, Git y GitHub.",
+      more: "Y también TypeScript, Tailwind, Astro, Git, GitHub, Claude Code y Grok.",
     },
     sheetTitle: "Ficha de personaje",
     inventoryTitle: "Inventario",
@@ -92,9 +129,9 @@ export const site = {
     ],
   },
   motofix: {
-    title: "Motofix",
-    kicker: "Mi prueba de que hago lo que digo",
-    lead: "Una plataforma para que motociclistas encuentren talleres, mecánicos, gomerías, casas de repuestos y grúas de confianza. Soy la fundadora y la construí de punta a punta.",
+    title: "MotoFIX",
+    kicker: "La prueba de que hago lo que digo",
+    lead: "Una plataforma que une motociclistas y talleres, gomerías, casas de repuestos y grúas de confianza. Soy la fundadora y la construí de punta a punta.",
     summary:
       "Búsqueda de negocios por rubro y zona, un panel para cada negocio, suscripciones con Mercado Pago y presencia en Google.",
     cta: { label: "Visitar motofix.ar", href: "https://motofix.ar/" },
@@ -113,7 +150,7 @@ export const site = {
     title: "Trabajos",
     items: [
       {
-        name: "Motofix",
+        name: "MotoFIX",
         kind: "Producto propio",
         desc: "Producto, backend, frontend, infraestructura y SEO.",
         href: "https://motofix.ar/",
@@ -163,12 +200,16 @@ export const site = {
       },
     ],
     price: "Consultá presupuesto",
-    extrasTitle: "Extras",
+    extrasTitle: "Extras de mi servicio como desarrolladora",
+    extrasIntro:
+      "Los tengo en cuenta tanto en las plantillas como en las personalizadas.",
     extras: [
       "SEO",
       "Dominio",
-      "Hosting y publicación (gratis, con arranque más lento, o premium)",
-      "Registro de marca en el INPI",
+      "Hosting y publicación (gratis o premium)",
+      "Diseño pensado para celular y compu",
+      "Botón de contacto por WhatsApp",
+      "Formulario de contacto",
     ],
     notesTitle: "Para que sea claro",
     notes: [
@@ -181,15 +222,19 @@ export const site = {
     steps: [
       {
         title: "Entiendo tu negocio",
-        text: "Primero escucho y pregunto hasta entender qué necesitás.",
+        text: "Primero escucho y pregunto hasta entender qué necesitás y cómo funciona tu sistema.",
       },
       {
         title: "Te propongo la solución",
-        text: "Te cuento qué voy a hacer y cómo, sin vueltas.",
+        text: "Te cuento qué voy a hacer y cómo, estableciendo un tiempo de entrega y un presupuesto.",
       },
       {
-        title: "La construyo y te la entrego",
-        text: "Recibís tu web publicada y lista para usar.",
+        title: "Desarrollo tu web",
+        text: "La construyo y te voy mostrando cómo avanza.",
+      },
+      {
+        title: "La revisás y ajustamos",
+        text: "Hacemos los cambios necesarios. Recibís tu web publicada y lista para usar.",
       },
     ],
   },
@@ -197,31 +242,55 @@ export const site = {
     title: "Contacto",
     headline: "Contame de tu negocio. Lo demás lo resolvemos juntos.",
     intro: "Contame qué necesitás y te respondo.",
-    // TODO: form has no backend yet. Wire it (Formspree, Resend, own API) before launch.
-    todoNote: "TODO: el formulario todavía no envía nada.",
     fields: {
-      reach: "Cómo te contacto (email o WhatsApp)",
-      reachPlaceholder: "tu email o tu número",
+      name: "Tu nombre",
+      namePlaceholder: "Cómo te llamás",
+      email: "Email",
+      emailPlaceholder: "tu@email.com",
+      phone: "WhatsApp (opcional)",
+      phonePlaceholder: "351 555 1234",
+      phoneHint: "Sin 0 ni 15. Solo si preferís que te escriba por ahí.",
       type: "Tipo de proyecto",
+      typePlaceholder: "Elegí uno",
       typeOptions: [
         "Landing de presentación",
         "Turnos y reservas",
         "Portfolio",
         "CRM",
-        "Tienda online simple (Mercado Pago o Tiendanube)",
+        "Tienda online",
+        "Sistema de GrokBOT",
+        "Asistente con IA",
+        "Asistente de WhatsApp Business",
         "Personalizado",
         "No sé todavía",
       ],
-      deadline: "Plazo",
-      deadlinePlaceholder: "Ej: en un mes",
+      deadline: "¿Para cuándo la necesitás?",
+      deadlinePlaceholder: "Elegí una referencia (opcional)",
+      deadlineHint: "Es una referencia. El plazo real lo acordamos juntos.",
+      deadlineOptions: [
+        "Lo antes posible",
+        "En 1 mes",
+        "En 2 o 3 meses",
+        "Sin apuro",
+      ],
       problem: "Qué problema querés resolver",
       problemPlaceholder: "Contame en pocas líneas",
       submit: "Enviar",
+      sending: "Enviando…",
+      ok: "¡Gracias! Recibí tu mensaje y te respondo pronto.",
+      error: "No se pudo enviar. Probá de nuevo o escribime por WhatsApp.",
+      invalid: "Revisá el email y el mensaje: son obligatorios.",
+    },
+    // WhatsApp button shows only when number is set (digits with country code, e.g. 5493510000000).
+    whatsapp: {
+      number: "5493513730075",
+      label: "Mejor escribime por WhatsApp",
+      text: "Hola Oriana, vi tu web y quiero la mía.",
     },
     // TODO: replace placeholders with real contact channels.
     channels: [
-      { label: "Email", value: "TODO: email" },
-      { label: "WhatsApp", value: "TODO: whatsapp" },
+      { label: "Email", value: "orianaschinocca@gmail.com" },
+      { label: "WhatsApp", value: "3513740075" },
       { label: "LinkedIn", value: "TODO: linkedin" },
     ],
   },
