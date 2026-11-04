@@ -6,7 +6,7 @@ const p = site.process;
   <h2 class="b-h2 b-reveal">{p.title}</h2>
   <div class="b-path b-reveal">
     <svg class="b-path__line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-      <path pathLength="1" vector-effect="non-scaling-stroke" d="M20 16 C 20 30, 80 28, 80 50 C 80 72, 20 70, 20 86" />
+      <path vector-effect="non-scaling-stroke" d="M20 16 C 20 30, 80 28, 80 50 C 80 72, 20 70, 20 86" />
     </svg>
     {p.steps.map((s, i) => (
       <div class={`b-step b-step--${i}`}>

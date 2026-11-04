@@ -1,13 +1,14 @@
 ---
 import { site } from '../../content/site';
 import Doodle from './Doodle.astro';
+import { bNav } from './nav';
 const h = site.hero;
 const [before, after] = h.title.split(h.scribbleWord);
 ---
 <header class="b-top">
   <a class="b-top__name" href="#top">{site.name}</a>
   <nav class="b-top__nav" aria-label="Principal">
-    {site.nav.map((n) => <a href={`#${n.id}`}>{n.label}</a>)}
+    {bNav.map((n) => <a href={`#${n.id}`}>{n.label}</a>)}
   </nav>
   <span class="b-top__handle">{site.handle}</span>
 </header>
@@ -15,22 +16,17 @@ const [before, after] = h.title.split(h.scribbleWord);
 <section class="b-hero" id="top">
   <div class="b-hero__copy">
     <h1 class="b-hero__title">
-      <span class="b-hero__line">{before}</span><span class="b-hero__script-wrap"><span class="b-script b-hero__script">{h.scribbleWord}</span><svg class="b-hero__swash" viewBox="0 0 220 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M6 26 C 50 8, 120 38, 214 12" /></svg></span><span class="b-hero__line b-hero__line--tail"> {after.trim()}</span>
+      <span>{before}</span><span class="b-script b-hero__script">{h.scribbleWord}</span><span> {after.trim()}</span>
     </h1>
     <p class="b-hero__sub">{h.sub}</p>
     <a class="b-btn b-hero__cta" href={h.cta.href}>{h.cta.label}<span class="b-btn__arrow" aria-hidden="true">→</span></a>
   </div>
 
   <div class="b-art">
-    <svg class="b-art__blob b-art__blob--coral" viewBox="0 0 400 400" aria-hidden="true"><path d="M310 120C360 170 370 260 310 320C250 380 140 380 90 320C40 260 50 150 120 100C180 55 260 70 310 120Z" /></svg>
-    <svg class="b-art__blob b-art__blob--peach" viewBox="0 0 400 400" aria-hidden="true"><path d="M60 140C90 60 200 30 280 70C360 110 380 210 320 280C260 350 150 370 90 310C30 250 30 200 60 140Z" /></svg>
-    <div class="b-art__arch" aria-hidden="true"><span class="b-art__ring"></span></div>
+    <svg class="b-art__blob" viewBox="0 0 400 400" aria-hidden="true"><path d="M60 140C90 60 200 30 280 70C360 110 380 210 320 280C260 350 150 370 90 310C30 250 30 200 60 140Z" /></svg>
+    <div class="b-art__arch" aria-hidden="true"></div>
     <img class="b-art__photo" src="/b/oriana.webp" width="1100" height="1449" alt={h.photoAlt} fetchpriority="high" />
     <Doodle kind="sun" class="b-art__sun" />
-    <Doodle kind="flower" class="b-art__flower" />
-    <Doodle kind="asterisk" class="b-art__ast" />
-    <Doodle kind="squig" class="b-art__squig" />
-    <span class="b-art__tag b-art__tag--a">{h.stickers[0]}</span>
-    <span class="b-art__tag b-art__tag--b">{h.stickers[1]}</span>
+    <span class="b-art__cap">{h.stickers.join(' · ')}</span>
   </div>
 </section>

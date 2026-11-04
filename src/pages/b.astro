@@ -2,12 +2,12 @@
 import '../versions/b/b.css';
 import { site } from '../content/site';
 import Hero from '../versions/b/Hero.astro';
-import About from '../versions/b/About.astro';
-import Services from '../versions/b/Services.astro';
-import Works from '../versions/b/Works.astro';
-import Motofix from '../versions/b/Motofix.astro';
-import Process from '../versions/b/Process.astro';
 import Statement from '../versions/b/Statement.astro';
+import Offer from '../versions/b/Offer.astro';
+import Services from '../versions/b/Services.astro';
+import Process from '../versions/b/Process.astro';
+import Motofix from '../versions/b/Motofix.astro';
+import About from '../versions/b/About.astro';
 import Contact from '../versions/b/Contact.astro';
 ---
 <!doctype html>
@@ -28,16 +28,16 @@ import Contact from '../versions/b/Contact.astro';
   </head>
   <body class="b-root">
     <div class="b-page">
-    <Hero />
-    <main>
-      <About />
-      <Services />
-      <Works />
-      <Motofix />
-      <Process />
-      <Statement />
-      <Contact />
-    </main>
+      <Hero />
+      <main>
+        <Statement />
+        <Offer />
+        <Services />
+        <Process />
+        <Motofix />
+        <About />
+        <Contact />
+      </main>
     </div>
     <script>
       import '../versions/b/reveal';

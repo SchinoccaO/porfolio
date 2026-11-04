@@ -1,11 +1,12 @@
 ---
 import { site } from '../../content/site';
-import Doodle from './Doodle.astro';
+import { bNav } from './nav';
 const c = site.contact;
 const f = c.fields;
+// Placeholder channels (value starts with "TODO") are never shown.
+const channels = c.channels.filter((ch) => !ch.value.startsWith('TODO'));
 ---
 <section class="b-contact" id="contacto">
-  <div class="b-contact__blob" aria-hidden="true"></div>
   <h2 class="b-h2 b-reveal">{c.title}</h2>
   <p class="b-contact__intro b-reveal">{c.intro}</p>
   <form class="b-form b-reveal" data-b-form>
@@ -19,14 +20,15 @@ const f = c.fields;
       <textarea name="problem" rows="4" placeholder={f.problemPlaceholder}></textarea>
     </label>
     <button class="b-btn" type="submit">{f.submit}<span class="b-btn__arrow" aria-hidden="true">→</span></button>
-    {/* TODO: no backend yet (see site.contact.todoNote). Submit is a no-op in this prototype. */}
+    {/* TODO: no backend yet (see site.contact.todoNote, intentionally not rendered). Submit is a no-op. */}
   </form>
-  <ul class="b-channels b-reveal">
-    {c.channels.map((ch) => <li><span class="b-script">{ch.label}</span> {ch.value}</li>)}
-  </ul>
-  <Doodle kind="sun" class="b-contact__sun" />
+  {channels.length > 0 && (
+    <ul class="b-channels b-reveal">
+      {channels.map((ch) => <li><span class="b-script">{ch.label}</span> {ch.value}</li>)}
+    </ul>
+  )}
   <footer class="b-footer">
     <p>{site.footer}</p>
-    <nav aria-label="Pie">{site.nav.map((n) => <a href={`#${n.id}`}>{n.label}</a>)}</nav>
+    <nav aria-label="Pie">{bNav.map((n) => <a href={`#${n.id}`}>{n.label}</a>)}</nav>
   </footer>
 </section>
