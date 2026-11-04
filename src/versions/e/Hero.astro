@@ -1,0 +1,28 @@
+---
+import { site } from '../../content/site';
+const h = site.hero;
+const [before, after] = h.title.split(h.scribbleWord);
+const letters = h.giantWord.toUpperCase().split('');
+const surname = site.name.split(' ').slice(1).join(' ');
+---
+<section class="e-hero" id="top">
+  <div class="e-hero__copy">
+    <h1 class="e-hero__title">
+      <span class="e-hero__t1">{before}<span class="e-script e-hero__web">{h.scribbleWord}</span></span>
+      <span class="e-hero__t2">{after.trim()}</span>
+    </h1>
+    <p class="e-hero__sub">{h.sub}</p>
+    <a class="e-btn e-hero__cta" href={h.cta.href}>{h.cta.label}<span aria-hidden="true">→</span></a>
+  </div>
+
+  <div class="e-stage">
+    <div class="e-stage__blob" aria-hidden="true"></div>
+    <div class="e-name" aria-hidden="true">
+      {letters.map((l, i) => <span style={`--i:${i}`}>{l}</span>)}
+    </div>
+    <div class="e-photo" data-parallax="-0.06">
+      <img src="/e/oriana.webp" width="1100" height="1449" alt={h.photoAlt} fetchpriority="high" />
+    </div>
+    <p class="e-script e-surname" aria-hidden="true">{surname}</p>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+---
+import { site } from '../../content/site';
+const s = site.services;
+const [plan, custom] = s.plans;
+---
+<section class="e-panel e-panel--ink e-services" id="servicios">
+  <div class="e-wrap">
+    <h2 class="e-h2 e-reveal">{s.title}</h2>
+    <p class="e-lead e-reveal">{s.intro}</p>
+
+    <div class="e-plans">
+      <article class="e-plan e-plan--tpl e-reveal">
+        <h3 class="e-plan__name">{plan.name}</h3>
+        <p class="e-plan__pitch">{plan.pitch}</p>
+        <p>{plan.desc}</p>
+        <ul class="e-plan__list">{plan.items.map((i) => <li>{i}</li>)}</ul>
+      </article>
+      <article class="e-plan e-plan--custom e-reveal">
+        <h3 class="e-plan__name">{custom.name}</h3>
+        <p class="e-plan__pitch">{custom.pitch}</p>
+        <p>{custom.desc}</p>
+        <ul class="e-plan__list">{custom.items.map((i) => <li>{i}</li>)}</ul>
+      </article>
+    </div>
+
+    <a class="e-btn e-btn--lemon e-services__quote e-reveal" href="#contacto">{s.price}<span aria-hidden="true">→</span></a>
+
+    <div class="e-services__more">
+      <div class="e-reveal">
+        <h3 class="e-h3">{s.extrasTitle}</h3>
+        <ul class="e-pills e-pills--dark">{s.extras.map((x) => <li>{x}</li>)}</ul>
+      </div>
+      <div class="e-notes e-reveal">
+        <h3 class="e-h3">{s.notesTitle}</h3>
+        {s.notes.map((n) => <p>{n}</p>)}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+---
+import { site } from '../../content/site';
+import { eNav } from './nav';
+const c = site.contact;
+const f = c.fields;
+// Placeholder channels (value starts with "TODO") are never shown.
+const channels = c.channels.filter((ch) => !ch.value.startsWith('TODO'));
+---
+<section class="e-contact" id="contacto">
+  <div class="e-wrap">
+    <h2 class="e-h2 e-reveal">{c.title}</h2>
+    <p class="e-contact__intro e-reveal">{c.intro}</p>
+    <form class="e-form e-reveal" data-e-form>
+      <label class="e-field"><span>{f.type}</span>
+        <select name="type">{f.typeOptions.map((o) => <option>{o}</option>)}</select>
+      </label>
+      <label class="e-field"><span>{f.deadline}</span>
+        <input name="deadline" type="text" placeholder={f.deadlinePlaceholder} />
+      </label>
+      <label class="e-field"><span>{f.problem}</span>
+        <textarea name="problem" rows="4" placeholder={f.problemPlaceholder}></textarea>
+      </label>
+      <button class="e-btn e-btn--pill" type="submit">{f.submit}<span aria-hidden="true">→</span></button>
+      {/* TODO: no backend yet. Submit is a no-op until a form service is wired. */}
+    </form>
+    {channels.length > 0 && (
+      <ul class="e-channels e-reveal">
+        {channels.map((ch) => <li><strong>{ch.label}</strong> {ch.value}</li>)}
+      </ul>
+    )}
+    <footer class="e-footer">
+      <p>{site.footer}</p>
+      <nav aria-label="Pie">{eNav.map((n) => <a href={`#${n.id}`}>{n.label}</a>)}</nav>
+    </footer>
+  </div>
+</section>

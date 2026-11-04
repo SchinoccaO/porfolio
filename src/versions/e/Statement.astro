@@ -1,0 +1,16 @@
+---
+import { site } from '../../content/site';
+const [l1, l2] = site.statement;
+const word = site.statementScribble;
+const rest = l2.replace(word, '').trim();
+const cut = l1.indexOf('webs');
+const prefix = l1.slice(0, cut);
+const dead = l1.slice(cut).replace('.', '');
+---
+<section class="e-panel e-panel--violet e-statement" aria-label="Lo que hago">
+  <div class="e-wrap">
+    <p class="e-statement__a e-reveal">{prefix}<span class="e-statement__dead">{dead}<svg viewBox="0 0 200 30" preserveAspectRatio="none" aria-hidden="true"><path d="M2 18 C 50 6, 120 26, 198 10" /></svg></span>.</p>
+    <p class="e-statement__b e-reveal">{rest} <span class="e-script e-statement__word">{word}</span></p>
+    <p class="e-statement__sub e-reveal">{site.sub}</p>
+  </div>
+</section>

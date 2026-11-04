@@ -1,0 +1,21 @@
+---
+import { site } from '../../content/site';
+const o = site.offer;
+---
+<section class="e-panel e-panel--paper e-offer" id="que-te-doy">
+  <div class="e-wrap e-offer__grid">
+    <div class="e-offer__intro e-reveal">
+      <h2 class="e-h2">{o.title}</h2>
+      <p class="e-lead">{o.lead}</p>
+    </div>
+    <div class="e-offer__main e-reveal">
+      <p>{o.own}</p>
+      <p class="e-note">{o.inpi}</p>
+    </div>
+    <div class="e-offer__logic e-reveal">
+      <h3 class="e-script e-kicker">{o.logicTitle}</h3>
+      <p>{o.logic}</p>
+      <ul class="e-pills">{o.logicItems.map((i) => <li>{i}</li>)}</ul>
+    </div>
+  </div>
+</section>

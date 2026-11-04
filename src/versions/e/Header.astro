@@ -1,0 +1,14 @@
+---
+import { site } from '../../content/site';
+import { eNav } from './nav';
+---
+<header class="e-top" data-e-top>
+  <a class="e-top__name" href="#top">{site.name}</a>
+  <nav class="e-top__nav" id="e-menu" aria-label="Principal" data-e-menu>
+    {eNav.map((n) => <a href={`#${n.id}`}>{n.label}</a>)}
+  </nav>
+  <button class="e-top__btn" type="button" aria-expanded="false" aria-controls="e-menu" data-e-toggle>
+    <span class="e-top__btn-label">Menú</span>
+    <span class="e-top__bars" aria-hidden="true"><i></i><i></i></span>
+  </button>
+</header>

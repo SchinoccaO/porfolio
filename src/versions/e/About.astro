@@ -1,0 +1,25 @@
+---
+import { site } from '../../content/site';
+const a = site.about;
+---
+<section class="e-panel e-panel--paper e-about" id="sobre-mi">
+  <div class="e-wrap e-about__grid">
+    <div class="e-about__photo e-reveal">
+      <div class="e-frame">
+        <i class="e-tape e-tape--a" aria-hidden="true"></i>
+        <i class="e-tape e-tape--b" aria-hidden="true"></i>
+        <div class="e-frame__plate">
+          <img src="/e/oriana.webp" width="1100" height="1449" alt={site.hero.photoAlt} loading="lazy" />
+        </div>
+      </div>
+    </div>
+    <div class="e-about__body e-reveal">
+      <h2 class="e-h2">{a.title}</h2>
+      {a.paragraphs.map((p) => <p>{p}</p>)}
+      <h3 class="e-h3">{a.skillsTitle}</h3>
+      <ul class="e-pills">{a.skills.map((s) => <li>{s}</li>)}</ul>
+      <p class="e-about__place">{a.place}</p>
+      <p class="e-about__small">{a.smallLine}</p>
+    </div>
+  </div>
+</section>

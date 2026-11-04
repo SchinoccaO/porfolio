@@ -1,0 +1,20 @@
+---
+import { site } from '../../content/site';
+const p = site.process;
+---
+<section class="e-panel e-panel--paper e-process" id="como-trabajo">
+  <div class="e-wrap">
+    <h2 class="e-h2 e-reveal">{p.title}</h2>
+    <div class="e-path e-reveal">
+      <svg class="e-path__line" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M20 16 C 20 30, 80 28, 80 50 C 80 72, 20 70, 20 86" />
+      </svg>
+      {p.steps.map((s, i) => (
+        <div class={`e-step e-step--${i}`}>
+          <span class="e-step__node" aria-hidden="true">{i + 1}</span>
+          <div class="e-step__text"><h3>{s.title}</h3><p>{s.text}</p></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
