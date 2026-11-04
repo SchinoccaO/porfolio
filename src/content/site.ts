@@ -100,8 +100,8 @@ export const site = {
 
     title: "Sobre mí",
     paragraphs: [
-      "Soy de Córdoba, me apasiona construir y diseñar soluciones eficientes a todo tipo de problemas. **No espero a que se den las oportunidades: las creo.**",
-      "Estudiante avanzada de Ingeniería en Sistemas y de la Tecnicatura en Programación en la UTN. Estoy en constante aprendizaje.",
+      "Soy de Córdoba y me apasiona construir y resolver. Diseño soluciones simples y eficientes para problemas reales. **No espero a que aparezcan las oportunidades: las creo.**",
+      "Estudio Ingeniería en Sistemas y la Tecnicatura en Programación en la UTN, así que combino base teórica con mucha práctica. Nunca dejo de aprender.",
     ],
     ovalAlt:
       "Oriana sonriendo de costado a la cámara, con el pelo largo y lacio, sentada en su espacio de trabajo.",
@@ -276,11 +276,12 @@ export const site = {
       problem: "Qué problema querés resolver",
       problemPlaceholder: "Contame en pocas líneas",
       problemMin: 10,
-      problemHintMore: "Escribí al menos {n} letras para poder enviar. Te faltan {left}.",
+      problemHintMore:
+        "Escribí al menos {n} letras para poder enviar. Te faltan {left}.",
       problemHintDone: "Listo, ya podés enviar.",
       submit: "Enviar",
       sending: "Enviando…",
-      ok: "¡Gracias! Recibí tu mensaje y te respondo pronto.",
+      ok: "¡Gracias! Recibí tu mensaje y te responderé pronto.",
       error: "No se pudo enviar. Probá de nuevo o escribime por WhatsApp.",
       invalid: "Revisá el email y el mensaje: son obligatorios.",
     },
