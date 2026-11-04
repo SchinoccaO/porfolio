@@ -58,10 +58,10 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
 
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
-    headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+    headers: { Authorization: `Bearer ${env.RESEND_API_KEY.trim()}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      from: env.CONTACT_FROM,
-      to: [env.CONTACT_TO],
+      from: env.CONTACT_FROM.trim(),
+      to: [env.CONTACT_TO.trim()],
       reply_to: email,
       subject: `Nuevo contacto: ${name || email}`,
       html,
