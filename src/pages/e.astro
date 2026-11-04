@@ -19,6 +19,7 @@ import Contact from '../versions/e/Contact.astro';
     <title>{site.title}</title>
     <meta name="description" content={site.description} />
     <meta name="theme-color" content="#F6F1E7" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -40,6 +41,7 @@ import Contact from '../versions/e/Contact.astro';
       <About />
       <Contact />
     </main>
+    <a class="e-btn e-sticky" href={site.hero.cta.href} data-e-sticky tabindex="-1" aria-hidden="true">{site.hero.cta.label} <span aria-hidden="true">→</span></a>
     <script>
       import '../versions/e/e';
     </script>

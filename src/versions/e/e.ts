@@ -53,5 +53,28 @@ if (top && toggle) {
   document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') setOpen(false); });
 }
 
+// ---- sticky CTA: shown once the hero CTA has scrolled above the viewport, hidden near the contact section ----
+const sticky = document.querySelector<HTMLElement>('[data-e-sticky]');
+const heroCta = document.querySelector<HTMLElement>('[data-e-hero-cta]');
+const contact = document.getElementById('contacto');
+if (sticky && heroCta && contact && 'IntersectionObserver' in window) {
+  let pastHero = false;
+  let atContact = false;
+  const render = () => {
+    const on = pastHero && !atContact;
+    sticky.classList.toggle('is-on', on);
+    if (on) sticky.removeAttribute('tabindex');
+    else sticky.setAttribute('tabindex', '-1');
+    sticky.setAttribute('aria-hidden', String(!on));
+  };
+  new IntersectionObserver(([en]) => {
+    // Past the hero only when the CTA is out of view AND above the viewport (user scrolled down).
+    pastHero = !en.isIntersecting && en.boundingClientRect.bottom < 0;
+    render();
+  }).observe(heroCta);
+  new IntersectionObserver(([en]) => { atContact = en.isIntersecting; render(); }, { threshold: 0.15 }).observe(contact);
+  render();
+}
+
 // ---- form: no backend yet ----
 document.querySelectorAll('form[data-e-form]').forEach((f) => f.addEventListener('submit', (ev) => ev.preventDefault()));
