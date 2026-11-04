@@ -1,6 +1,9 @@
 ---
 import { site } from '../../content/site';
 const a = site.about;
+const t = a.tech;
+// Text between ** ** becomes bold (the technology names).
+const rich = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 ---
 <section class="e-panel e-panel--paper e-about" id="sobre-mi">
   <div class="e-wrap e-about__grid">
@@ -16,9 +19,11 @@ const a = site.about;
     <div class="e-about__body e-reveal">
       <h2 class="e-h2">{a.title}</h2>
       {a.paragraphs.map((p) => <p>{p}</p>)}
-      <h3 class="e-h3">{a.skillsTitle}</h3>
-      <ul class="e-pills">{a.skills.map((s) => <li>{s}</li>)}</ul>
-      <p class="e-about__place">{a.place}</p>
+      <div class="e-tech">
+        <h3 class="e-h3">{t.title}</h3>
+        {t.items.map((p) => <p set:html={rich(p)} />)}
+        <p class="e-tech__more">{t.more}</p>
+      </div>
     </div>
   </div>
 </section>

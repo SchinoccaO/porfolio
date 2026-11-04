@@ -2,8 +2,6 @@
 import { site } from '../../content/site';
 const m = site.motofix;
 const work = site.works.items[0];
-// Four highlights picked from the full list (the rest stays in site.ts).
-const highlights = [1, 2, 3, 4].map((i) => m.built[i]);
 ---
 <section class="b-moto" id="motofix">
   <div class="b-moto__in">
@@ -15,13 +13,8 @@ const highlights = [1, 2, 3, 4].map((i) => m.built[i]);
     <div class="b-moto__grid">
       <div class="b-moto__text b-reveal">
         <p class="b-moto__lead">{m.lead}</p>
-        <p>{m.why}</p>
-        <p class="b-moto__status">{m.status}</p>
+        <p>{m.summary}</p>
         <a class="b-btn b-btn--ink" href={work.href} target="_blank" rel="noopener">{m.cta.label}<span class="b-btn__arrow" aria-hidden="true">↗</span></a>
-      </div>
-      <div class="b-moto__built b-reveal">
-        <h3 class="b-moto__built-title">{m.builtTitle}</h3>
-        <ul class="b-moto__list">{highlights.map((b) => <li>{b}</li>)}</ul>
       </div>
     </div>
   </div>

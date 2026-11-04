@@ -126,7 +126,6 @@ html { scroll-behavior: smooth; scroll-padding-top: var(--top-h); -webkit-text-s
 .e-statement__dead path { fill: none; stroke: var(--lemon); stroke-width: 6; stroke-linecap: round; vector-effect: non-scaling-stroke; }
 .e-statement__word { display: inline-block; font-size: 1.28em; line-height: 0.8; letter-spacing: 0; color: var(--lemon); transform: rotate(-3deg); }
 .e-statement__story { margin-top: 2rem; font-weight: 800; font-size: clamp(1.6rem, 5.6vw, 2.6rem); line-height: 1.1; letter-spacing: -0.03em; max-width: 24ch; text-wrap: balance; color: var(--paper); }
-.e-statement__sub { margin-top: 1.1rem; font-size: 1.1rem; font-weight: 500; max-width: 26ch; color: var(--paper-dim); }
 
 /* Qué te doy */
 .e-offer__grid { display: grid; gap: 2rem; }
@@ -177,14 +176,11 @@ html { scroll-behavior: smooth; scroll-padding-top: var(--top-h); -webkit-text-s
 .e-step--2 .e-step__text { left: 34%; transform: translateY(-30%); }
 
 /* Motofix */
-.e-moto__top { display: grid; gap: 1.8rem; }
+.e-moto__grid { display: grid; gap: 1.6rem; }
 .e-moto__title { font-size: clamp(3.4rem, 17vw, 7.5rem); letter-spacing: -0.05em; }
-.e-moto__status { margin-top: 1.4rem; padding-left: 1rem; border-left: 4px solid var(--lemon); font-weight: 600; color: var(--paper-dim); max-width: 30ch; }
 .e-moto .e-lead { margin-top: 0; max-width: 34ch; }
-.e-moto__built { margin-top: 2.2rem; }
-.e-moto__built .e-h3 { margin-top: 0; }
-.e-built { border-top: 1px solid rgba(246, 241, 231, 0.3); }
-.e-built li { padding: 0.7rem 0; border-bottom: 1px solid rgba(246, 241, 231, 0.3); font-weight: 500; }
+.e-moto__summary { margin-top: 1rem; max-width: 42ch; color: var(--paper-dim); }
+.e-moto .e-link { margin-top: 1.4rem; }
 
 /* Sobre mí */
 .e-about__grid { display: grid; gap: 2.6rem; }
@@ -197,15 +193,16 @@ html { scroll-behavior: smooth; scroll-padding-top: var(--top-h); -webkit-text-s
 .e-tape--b { right: -1.8rem; bottom: 2.4rem; transform: rotate(-38deg); background: rgba(184, 164, 232, 0.9); }
 .e-about__body p { max-width: 54ch; }
 .e-about__body .e-h2 { margin-bottom: 1.2rem; }
-.e-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-.e-pills li { padding: 0.45rem 1rem; border-radius: 999px; background: var(--lilac-soft); color: var(--ink); font-weight: 600; font-size: 0.975rem; line-height: 1.25; }
-.e-about__place { margin-top: 1.4rem !important; font-weight: 700; color: var(--violet); }
+.e-tech { margin-top: 1.8rem; padding-top: 0.4rem; border-top: 2px solid var(--ink); }
+.e-tech .e-h3 { margin-top: 1.2rem; }
+.e-tech strong { font-weight: 800; box-shadow: inset 0 -0.38em 0 rgba(244, 222, 42, 0.75); }
+.e-tech p + p { margin-top: 0.8rem; }
+.e-tech .e-tech__more { font-size: 0.95rem; color: var(--muted); }
 
 /* Contacto */
 .e-contact { position: relative; margin-top: -2.2rem; padding: 5rem 0 2rem; background-color: var(--lilac); background-image: var(--grain); color: var(--ink); border-radius: 3rem 3.6rem 0 0 / 2.6rem 3rem 0 0; }
 .e-contact__grid { display: grid; gap: 2rem; }
-.e-contact__intro { margin-top: 0.9rem; font-weight: 700; font-size: 1.3rem; line-height: 1.25; max-width: 20ch; }
-.e-contact__pull { margin-top: 1.6rem; font-weight: 800; font-size: clamp(1.9rem, 6.4vw, 3rem); line-height: 1.05; letter-spacing: -0.035em; max-width: 14ch; text-wrap: balance; color: var(--violet); }
+.e-contact__pull { margin-top: 1.2rem; font-weight: 800; font-size: clamp(1.9rem, 6.4vw, 3rem); line-height: 1.05; letter-spacing: -0.035em; max-width: 16ch; text-wrap: balance; color: var(--violet); }
 .e-form { display: grid; gap: 1.1rem; padding: 1.5rem 1.3rem 1.8rem; background: var(--paper); border-radius: 2rem 2.6rem 2rem 2.6rem; }
 .e-field { display: grid; gap: 0.35rem; font-weight: 700; }
 .e-field input, .e-field select, .e-field textarea { width: 100%; padding: 0.8rem 1rem; font: 500 1rem/1.3 var(--f-text); color: var(--ink); background: #fbf8f2; border: 1.5px solid rgba(var(--shadow), 0.22); border-radius: 1.1rem; }
@@ -291,14 +288,13 @@ html { scroll-behavior: smooth; scroll-padding-top: var(--top-h); -webkit-text-s
   .e-step--0 .e-step__text, .e-step--2 .e-step__text { left: calc(20% + 3.2rem); width: 42%; }
   .e-step--1 .e-step__text { left: auto; right: calc(20% + 3.2rem); width: 42%; }
   .e-step__text h3 { font-size: 1.6rem; }
-  .e-moto__top { grid-template-columns: 6fr 5fr; column-gap: 4.5rem; align-items: end; }
-  .e-moto__story { padding-bottom: 0.6rem; }
-  .e-moto__built { margin-top: 3.2rem; }
-  .e-built { display: grid; grid-template-columns: 1fr 1fr; column-gap: 4.5rem; }
+  .e-moto__grid { grid-template-columns: 6fr 5fr; column-gap: 4.5rem; align-items: center; }
+  .e-moto__story { padding-left: 2rem; border-left: 3px solid var(--lemon); }
+  .e-moto__summary { font-size: 1.1rem; }
   .e-about__grid { grid-template-columns: 5fr 6fr; column-gap: 4.5rem; align-items: center; }
   .e-contact { padding-top: 6.5rem; }
   .e-contact__grid { grid-template-columns: 5fr 6fr; column-gap: 4.5rem; align-items: start; }
-  .e-contact__pull { margin-top: 2.4rem; }
+  .e-contact__pull { margin-top: 1.6rem; font-size: 3.4rem; max-width: 13ch; }
   .e-form { padding: 2rem 2rem 2.2rem; }
   .e-footer { flex-direction: row; justify-content: space-between; display: flex; margin-top: 4.5rem; }
 }

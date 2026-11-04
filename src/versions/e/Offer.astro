@@ -3,7 +3,7 @@ import { site } from '../../content/site';
 const o = site.offer;
 // Emphasise the four capabilities inside the paragraph instead of repeating them as chips.
 const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-const emphasis = ['formularios', 'calendario de reservas', 'control de tu stock', 'tienda virtual'];
+const emphasis = ['Formularios', 'calendario de reservas', 'control de stock', 'tienda online'];
 const logicHtml = o.logic.replace(new RegExp(`(${emphasis.map(esc).join('|')})`, 'g'), '<strong>$1</strong>');
 ---
 <section class="e-panel e-panel--paper e-offer" id="que-te-doy">

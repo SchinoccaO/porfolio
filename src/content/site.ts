@@ -23,16 +23,15 @@ export const site = {
   },
   statement: ['Cualquiera arma una web.', 'Yo armo una que tus clientes entienden.'],
   statementScribble: 'entienden.',
-  sub: 'Entiendo el problema antes de escribir código.',
   story: 'Tu web no muestra solo productos, cuenta tu historia.',
   // Owner's own copy (written by her, light spelling fixes only).
   offer: {
     title: 'Qué te doy',
-    lead: 'Antes que nada: comprensión. Entiendo tus necesidades y las pongo en práctica. Con mi toque de conocimiento, podemos hacer realidad tu web.',
-    own: 'Te ofrezco tu propio dominio, tu marca registrada y modelos de web que se adapten a tu negocio. Y si querés más, una web personalizada solo para vos. Me encargo de que tu web tenga personalidad y conecte con la gente.',
+    lead: 'Primero entiendo qué necesitás. Después lo hago realidad, con criterio técnico y sin vueltas.',
+    own: 'Tu dominio propio, modelos de web que se adaptan a tu negocio y, si necesitás más, una hecha a tu medida. Con personalidad, para que se note quién sos.',
     inpi: 'Me encargo del registro de tu marca en el INPI, para que tu nombre sea tuyo de verdad.',
-    logicTitle: 'Para los más audaces',
-    logic: 'Genero toda la lógica que tu negocio necesita: creo tus formularios, armo tu calendario de reservas, llevo el control de tu stock y desarrollo tu tienda virtual (podemos usar Tiendanube).',
+    logicTitle: 'Si tu negocio necesita más que una web',
+    logic: 'Formularios, calendario de reservas, control de stock y tienda online (podemos usar Tiendanube). Lo armo según cómo trabaja tu negocio.',
     logicItems: ['Formularios', 'Calendario de reservas', 'Control de stock', 'Tienda virtual'],
   },
   nav: [
@@ -45,13 +44,21 @@ export const site = {
   about: {
     title: 'Sobre mí',
     paragraphs: [
-      'Soy de Córdoba, soy motera y me gusta hacer cosas. No me quedo mirando cómo otros crean: me tiro al vacío y lo hago.',
+      'Soy de Córdoba, soy motera y me gusta construir. No miro cómo otros crean: me tiro al vacío y lo hago.',
       'Estudio Ingeniería en Sistemas en la UTN FRC y la Tecnicatura en Programación en la UTN San Francisco. Por eso tengo fundamento teórico además de práctica.',
-      'Antes de abrir el editor, entiendo qué problema hay que resolver. Después lo construyo de punta a punta.',
     ],
     skillsTitle: 'Con qué trabajo',
     skills: ['React', 'Node', 'Express', 'Python', 'SQL'],
-    place: 'Córdoba, Argentina',
+    // Plain-language tech block. Text between ** ** is rendered in bold.
+    tech: {
+      title: 'Con qué trabajo, en simple',
+      items: [
+        'Programo tu web y todo lo que va por dentro con **React, Node.js, Express y Python**. Eso hace que funcione rápido y sin vueltas.',
+        'Guardo la información de tu negocio (clientes, turnos, stock) de forma ordenada con bases de datos: **SQL, SQL Server y MongoDB**.',
+        'Uso **inteligencia artificial** todos los días, con **Claude Code y Grok**, para automatizar tareas repetitivas y entregarte más rápido.',
+      ],
+      more: 'Y también TypeScript, Tailwind, Astro, Git y GitHub.',
+    },
     sheetTitle: 'Ficha de personaje',
     inventoryTitle: 'Inventario',
     sheet: [
@@ -61,26 +68,13 @@ export const site = {
       { k: 'Estudios', v: 'UTN FRC · UTN San Francisco' },
       { k: 'Atributo', v: 'Perseverante' },
     ],
-    smallLine: 'Dejá de consumir. Empezá a crear.',
   },
   motofix: {
     title: 'Motofix',
     kicker: 'Mi prueba de que hago lo que digo',
     lead: 'Una plataforma para que motociclistas encuentren talleres, mecánicos, gomerías, casas de repuestos y grúas de confianza. Soy la fundadora y la construí de punta a punta.',
-    why: 'Une a motociclistas con negocios que los cuidan y arma comunidad alrededor de la moto. Menos scroll, más gente real.',
-    status: 'En etapa previa al lanzamiento. Todavía no hay métricas.',
-    builtTitle: 'Lo que construí',
-    built: [
-      'Frontend en React',
-      'Búsqueda de negocios',
-      'Perfiles y paneles para cada negocio',
-      'Alta con validación de documentación según el rubro',
-      'Suscripciones con Mercado Pago',
-      'Arnés de calidad de búsqueda con 230 consultas',
-      'SEO técnico',
-      'Código QR por negocio',
-      'Bots de Telegram',
-    ],
+    summary:
+      'Búsqueda de negocios por rubro y zona, un panel para cada negocio, suscripciones con Mercado Pago y presencia en Google.',
     cta: { label: 'Visitar motofix.ar', href: 'https://motofix.ar/' },
   },
   works: {
@@ -132,7 +126,6 @@ export const site = {
           'Diseño propio',
           'CRM',
           'Tienda online (Mercado Pago o Tiendanube)',
-          'Pensado para tu caso',
         ],
       },
     ],
@@ -141,13 +134,13 @@ export const site = {
     extras: [
       'SEO',
       'Dominio',
-      'Hosting y deploy (gratis con demora o premium)',
+      'Hosting y publicación (gratis, con arranque más lento, o premium)',
       'Registro de marca en el INPI',
     ],
     notesTitle: 'Para que sea claro',
     notes: [
       'El código fuente no se vende: se vende la web funcionando.',
-      'Los costos de terceros (diseñador, fotógrafo, bases de datos, servidores y servicios pagos) los paga el cliente.',
+      'Diseñador, fotógrafo, bases de datos, servidores y servicios pagos los paga el cliente.',
     ],
   },
   process: {
@@ -155,15 +148,18 @@ export const site = {
     steps: [
       { title: 'Entiendo tu negocio', text: 'Primero escucho y pregunto hasta entender qué necesitás.' },
       { title: 'Te propongo la solución', text: 'Te cuento qué voy a hacer y cómo, sin vueltas.' },
-      { title: 'La construyo y te la entrego andando', text: 'Recibís la web funcionando, lista para usar.' },
+      { title: 'La construyo y te la entrego', text: 'Recibís tu web publicada y lista para usar.' },
     ],
   },
   contact: {
     title: 'Contacto',
+    headline: 'Contame de tu negocio. Lo demás lo resolvemos juntos.',
     intro: 'Contame qué necesitás y te respondo.',
     // TODO: form has no backend yet. Wire it (Formspree, Resend, own API) before launch.
     todoNote: 'TODO: el formulario todavía no envía nada.',
     fields: {
+      reach: 'Cómo te contacto (email o WhatsApp)',
+      reachPlaceholder: 'tu email o tu número',
       type: 'Tipo de proyecto',
       typeOptions: [
         'Landing de presentación',

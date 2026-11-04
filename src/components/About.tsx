@@ -13,7 +13,6 @@ export default function About() {
           <p className="body">
             <strong>{a.skillsTitle}:</strong> {a.skills.slice(0, -1).join(', ')} y {a.skills[a.skills.length - 1]}.
           </p>
-          <p className="about__small">{a.smallLine}</p>
         </div>
       </div>
     </section>

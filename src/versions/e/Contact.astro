@@ -11,11 +11,13 @@ const channels = c.channels.filter((ch) => !ch.value.startsWith('TODO'));
     <div class="e-contact__grid">
       <div class="e-contact__lead">
         <h2 class="e-h2 e-reveal">{c.title}</h2>
-        <p class="e-contact__intro e-reveal">{c.intro}</p>
-        <p class="e-contact__pull e-reveal">{site.hero.sub}</p>
+        <p class="e-contact__pull e-reveal">{c.headline}</p>
       </div>
       <div class="e-contact__side">
         <form class="e-form e-reveal" data-e-form>
+          <label class="e-field"><span>{f.reach}</span>
+            <input name="reach" type="text" required autocomplete="email" placeholder={f.reachPlaceholder} />
+          </label>
           <label class="e-field"><span>{f.type}</span>
             <select name="type">{f.typeOptions.map((o) => <option>{o}</option>)}</select>
           </label>

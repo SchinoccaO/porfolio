@@ -142,7 +142,6 @@ export default function AApp() {
           <div className="a-logic a-rv">
             <h3>{o.logicTitle}</h3>
             <p>{o.logic}</p>
-            <Run items={o.logicItems} />
           </div>
         </section>
 
@@ -209,15 +208,10 @@ export default function AApp() {
           <div className="a-moto__cols">
             <div className="a-rv">
               <p className="a-moto__lead">{m.lead}</p>
-              <p>{m.why}</p>
+              <p>{m.summary}</p>
               <p className="a-moto__kind">
                 {work.kind}. {work.desc}
               </p>
-            </div>
-            <div className="a-rv">
-              <h3 className="a-label">{m.builtTitle}</h3>
-              <Run items={m.built} className="a-run--small" />
-              <p className="a-moto__status">{m.status}</p>
             </div>
           </div>
           <a className="a-btn a-btn--orange a-rv" href={m.cta.href} target="_blank" rel="noopener noreferrer">
@@ -235,12 +229,10 @@ export default function AApp() {
             <p className="a-about__lead a-rv">{site.about.paragraphs[0]}</p>
             <div className="a-rv">
               <p>{site.about.paragraphs[1]}</p>
-              <p>{site.about.paragraphs[2]}</p>
               <h3 className="a-label">{site.about.skillsTitle}</h3>
               <Run items={site.about.skills} className="a-run--small" />
             </div>
           </div>
-          <p className="a-about__small a-rv">{site.about.smallLine}</p>
         </section>
 
         {/* ---------- contacto ---------- */}

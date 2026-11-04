@@ -19,14 +19,6 @@ export default function Offer() {
         <div className="offer__logic">
           <h3 className="h3">{o.logicTitle}</h3>
           <p className="body">{o.logic}</p>
-          <p className="offer__run" aria-hidden="true">
-            {o.logicItems.map((it, i) => (
-              <span key={it}>
-                {it}
-                {i < o.logicItems.length - 1 && <i> / </i>}
-              </span>
-            ))}
-          </p>
         </div>
       </div>
     </section>
