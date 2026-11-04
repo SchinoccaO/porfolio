@@ -24,6 +24,16 @@ export const site = {
   statement: ['No hago webs lindas.', 'Hago webs que venden.'],
   statementScribble: 'venden.',
   sub: 'Entiendo el problema antes de escribir código.',
+  // Owner's own copy (written by her, light spelling fixes only).
+  offer: {
+    title: 'Qué te doy',
+    lead: 'Antes que nada: comprensión. Entiendo tus necesidades y las pongo en práctica. Con mi toque de conocimiento, podemos hacer realidad tu web.',
+    own: 'Te ofrezco tu propio dominio, tu marca registrada y modelos de web que se adapten a tu negocio. Y si querés más, una web personalizada solo para vos. Me encargo de que tu web tenga personalidad y conecte con la gente.',
+    inpi: 'Me encargo del registro de tu marca en el INPI, para que tu nombre sea tuyo de verdad.',
+    logicTitle: 'Para los más audaces',
+    logic: 'Genero toda la lógica que tu negocio necesita: creo tus formularios, armo tu calendario de reservas, llevo el control de tu stock y desarrollo tu tienda virtual (podemos usar Tiendanube).',
+    logicItems: ['Formularios', 'Calendario de reservas', 'Control de stock', 'Tienda virtual'],
+  },
   nav: [
     { id: 'sobre-mi', label: 'Sobre mí' },
     { id: 'motofix', label: 'Motofix' },
@@ -111,7 +121,7 @@ export const site = {
           'Turnos y reservas',
           'Portfolio',
           'CRM',
-          'E-commerce simple con Mercado Pago',
+          'Tienda online simple (Mercado Pago o Tiendanube)',
         ],
       },
       {
@@ -155,7 +165,7 @@ export const site = {
         'Turnos y reservas',
         'Portfolio',
         'CRM',
-        'E-commerce simple con Mercado Pago',
+        'Tienda online simple (Mercado Pago o Tiendanube)',
         'Personalizado',
         'No sé todavía',
       ],
