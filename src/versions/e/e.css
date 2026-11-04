@@ -285,9 +285,12 @@ html { scroll-behavior: smooth; scroll-padding-top: var(--top-h); -webkit-text-s
 .e-tape { position: absolute; z-index: 2; width: 6.6rem; height: 1.9rem; background: rgba(244, 222, 42, 0.82);
   clip-path: polygon(0 0, 4% 12%, 0 25%, 4% 38%, 0 50%, 4% 62%, 0 75%, 4% 88%, 0 100%, 100% 100%, 96% 88%, 100% 75%, 96% 62%, 100% 50%, 96% 38%, 100% 25%, 96% 12%, 100% 0); }
 .e-tape--a { left: 14.6%; top: 14.6%; width: 5.6rem; height: 1.7rem; transform: translate(-50%, -50%) rotate(-53deg); }
-.e-tape--b { left: 85.4%; top: 85.4%; width: 5.6rem; height: 1.7rem; transform: translate(-50%, -50%) rotate(-53deg); background: rgba(184, 164, 232, 0.9); }
+.e-tape--b { left: 85.4%; top: 85.4%; width: 5.6rem; height: 1.7rem; transform: translate(-50%, -50%) rotate(-53deg); }
 .e-about__body p { max-width: 54ch; }
 .e-about__body .e-h2 { margin-bottom: 1.2rem; }
+.e-social-ico { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin: 1.4rem 0 0; padding: 0; }
+.e-social-ico a { display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border: 2px solid var(--ink); border-radius: 999px; color: var(--ink); transition: background-color 0.25s var(--ease), color 0.25s var(--ease), transform 0.25s var(--ease); }
+.e-social-ico a:hover, .e-social-ico a:focus-visible { background: var(--violet); border-color: var(--violet); color: var(--paper); transform: translateY(-2px); }
 .e-tech { margin-top: 1.8rem; padding-top: 0.4rem; border-top: 2px solid var(--ink); }
 .e-tech .e-h3 { margin-top: 1.2rem; }
 .e-tech strong { font-weight: 800; box-shadow: inset 0 -0.38em 0 rgba(244, 222, 42, 0.75); }
@@ -342,6 +345,7 @@ html { scroll-behavior: smooth; scroll-padding-top: var(--top-h); -webkit-text-s
 .e-footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.4rem; }
 .e-footer a { color: var(--paper); font-weight: 700; text-decoration: none; opacity: 0.92; }
 .e-footer a:hover { color: var(--lemon); opacity: 1; }
+.e-footer .e-social a { font-weight: 500; }
 
 /* ---------- Fixed bottom CTA bar (same behavior as v1: after the hero CTA leaves, hidden at contact) ---------- */
 .e-bar {
@@ -430,6 +434,7 @@ html { scroll-behavior: smooth; scroll-padding-top: var(--top-h); -webkit-text-s
   .e-moto__grid { grid-template-columns: 6fr 5fr; column-gap: 4.5rem; align-items: center; }
   .e-moto__summary { font-size: 1.1rem; }
   .e-about__grid { grid-template-columns: 1fr 1fr; column-gap: 4.5rem; align-items: center; }
+  .e-social-ico { justify-content: flex-start; }
   .e-frame { width: min(100%, 34rem); }
   .e-contact { padding-top: 6.5rem; }
   .e-contact__grid { grid-template-columns: 5fr 6fr; column-gap: 4.5rem; align-items: start; }
