@@ -21,9 +21,10 @@ export const site = {
     photoAlt: 'Retrato de Oriana Schinocca, desarrolladora full stack, de tres cuartos y mirando a cámara.',
     stickers: ['Córdoba', 'motera'],
   },
-  statement: ['No hago webs lindas.', 'Hago webs que venden.'],
-  statementScribble: 'venden.',
+  statement: ['Cualquiera arma una web.', 'Yo armo una que tus clientes entienden.'],
+  statementScribble: 'entienden.',
   sub: 'Entiendo el problema antes de escribir código.',
+  story: 'Tu web no muestra solo productos, cuenta tu historia.',
   // Owner's own copy (written by her, light spelling fixes only).
   offer: {
     title: 'Qué te doy',

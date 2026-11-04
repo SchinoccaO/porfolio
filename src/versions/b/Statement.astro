@@ -3,12 +3,9 @@ import { site } from '../../content/site';
 const [l1, l2] = site.statement;
 const word = site.statementScribble;
 const rest = l2.replace(word, '').trim();
-const cut = l1.indexOf('webs');
-const prefix = l1.slice(0, cut);
-const dead = l1.slice(cut).replace('.', '');
 ---
 <section class="b-statement" aria-label="Lo que hago">
-  <p class="b-statement__a b-reveal">{prefix}<span class="b-statement__dead">{dead}<svg viewBox="0 0 200 30" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 18 C 50 6, 120 26, 198 10" /></svg></span>.</p>
+  <p class="b-statement__a b-reveal"><span class="b-statement__dead">{l1}<svg viewBox="0 0 200 30" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 18 C 50 6, 120 26, 198 10" /></svg></span></p>
   <p class="b-statement__b b-reveal"><span>{rest}</span> <span class="b-script b-statement__script">{word}</span></p>
   <p class="b-statement__sub b-reveal">{site.sub}</p>
 </section>

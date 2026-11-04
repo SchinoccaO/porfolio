@@ -118,12 +118,13 @@ section[id] { scroll-margin-top: 1rem; }
 
 /* ---------- Statement ---------- */
 .b-statement { padding: clamp(2.5rem, 9vw, 6rem) var(--b-gutter) clamp(3rem, 10vw, 5.5rem); }
-.b-statement__a { font: 800 clamp(2.2rem, 10.5vw, 4.8rem)/1 var(--b-display); letter-spacing: -0.04em; color: var(--b-ink); margin: 0; }
+.b-statement__a { white-space: nowrap; font: 800 clamp(1.6rem, 6.8vw, 3.6rem)/1.1 var(--b-display); letter-spacing: -0.04em; color: var(--b-ink); margin: 0; }
 .b-statement__dead { position: relative; display: inline-block; color: var(--b-body); }
 .b-statement__dead svg { position: absolute; left: -2%; width: 104%; top: 42%; height: 0.45em; fill: none; stroke: var(--b-coral); stroke-width: 7; stroke-linecap: round; }
 .b-statement__dead path { vector-effect: non-scaling-stroke; }
-.b-js .b-statement__dead path { stroke-dasharray: 1; stroke-dashoffset: 1; }
-.b-js .b-statement__a.is-in .b-statement__dead path { stroke-dashoffset: 0; transition: stroke-dashoffset 0.9s 0.5s var(--b-ease); }
+/* Wipe the strike with clip-path: dash-based drawing breaks on a long, possibly wrapped, struck line. */
+.b-js .b-statement__dead svg { clip-path: inset(0 100% 0 0); }
+.b-js .b-statement__a.is-in .b-statement__dead svg { clip-path: inset(0 0 0 0); transition: clip-path 0.9s 0.5s var(--b-ease); }
 .b-statement__b { margin: 0.15em 0 0; font: 800 clamp(2.4rem, 12vw, 5.2rem)/1.05 var(--b-display); letter-spacing: -0.04em; color: var(--b-coral-deep); }
 .b-statement__script { display: block; font-size: 1.8em; line-height: 1.15; letter-spacing: 0; color: var(--b-pink-ink); transform: rotate(-4deg); transform-origin: left center; padding: 0.05em 0.1em; }
 .b-statement__sub { font-size: 1.15rem; font-weight: 500; color: var(--b-ink); max-width: 24rem; margin: clamp(1.4rem, 5vw, 2.4rem) 0 0; }
@@ -235,7 +236,8 @@ section[id] { scroll-margin-top: 1rem; }
 @media (prefers-reduced-motion: reduce) {
   .b-root *, .b-root *::before, .b-root *::after { animation: none !important; transition: none !important; }
   .b-js .b-reveal, .b-js .b-path .b-path__line { opacity: 1 !important; transform: none !important; }
-  .b-js .b-sign path, .b-js .b-statement__dead path { stroke-dashoffset: 0 !important; }
+  .b-js .b-sign path { stroke-dashoffset: 0 !important; }
+  .b-js .b-statement__dead svg { clip-path: none !important; transition: none !important; }
 }
 
 /* ---------- Wider screens ---------- */
